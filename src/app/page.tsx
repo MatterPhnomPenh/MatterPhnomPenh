@@ -29,9 +29,9 @@ export default function HomePage() {
     const hasPlayedIntro = sessionStorage.getItem("introPlayed");
 
     if (hasPlayedIntro === "true") {
-      setShowMainContent(true); // skip video
+      setShowMainContent(true); 
     } else {
-      setShouldShowIntro(true); // show video
+      setShouldShowIntro(true); 
     }
   }, []);
 
