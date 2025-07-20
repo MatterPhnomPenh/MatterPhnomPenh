@@ -18,7 +18,7 @@ export default function WishMessageSection() {
             className="block w-full h-full"
           >
             <video
-              src="/videos/wishes.mov"
+              src="/videos/1.mp4"
               autoPlay
               muted
               loop
