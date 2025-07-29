@@ -8,23 +8,17 @@ import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
 import { SiTiktok } from "react-icons/si";
 import { motion } from "framer-motion";
 import MPopup from "./MPopup";
+import Image from "next/image";
 
-const OriginIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    {/* Replace below with your actual SVG path */}
-    <circle cx="12" cy="12" r="10" />
-    <text
-      x="12"
-      y="16"
-      fontSize="10"
-      fontWeight="bold"
-      textAnchor="middle"
-      fill="white"
-      pointerEvents="none"
-    >
-      O
-    </text>
-  </svg>
+
+const OriginIcon = () => (
+  <Image
+    src="/ORS_STAR-BLUE.png" 
+    alt="Origin Logo"
+    width={24}
+    height={24}
+    className="object-contain"
+  />
 );
 
 export default function Footer() {

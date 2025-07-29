@@ -59,7 +59,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
       name: "Lin Juvie",
       role: "Head of Creative Team",
       description: "Amplifies our message, connecting the Mosaic Event to a global audience.",
-      image: "/Lin Juvie.jpeg",
+      image: "/person.png",
       id: "",
       position: ""
     },
