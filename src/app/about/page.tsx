@@ -19,7 +19,7 @@ export default function AboutPage() {
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
       <IntroAboutSection />
       <VideoSection
-        videoSrc="/videos/About-MTD1.mp4"
+        videoSrc="/videos/1.mp4"
         thumbnailSrc={"/origins-thumbnail.png"}
         id=""
         showControls={true}
