@@ -13,7 +13,7 @@ import Image from "next/image";
 
 const OriginIcon = () => (
   <Image
-    src="/your-icon-path.png" // Replace this with the correct path to your PNG
+    src="/ORS_STAR-BLUE.png" // Replace this with the correct path to your PNG
     alt="Origin Logo"
     width={24}
     height={24}
