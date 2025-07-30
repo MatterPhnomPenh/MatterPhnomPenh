@@ -41,9 +41,9 @@ export default function IntroContactSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-900 mb-4"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#2330ff] mb-4"
         >
-          Let&apos;s Connect with Purpose
+          Let&apos;s Connect with matter
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -51,8 +51,8 @@ export default function IntroContactSection() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-700"
         >
-          Whether you&apos;re reaching out for a project, support, or press; this is the place to begin something meaningful.
-        </motion.p>
+          No matter why you&apos;re reaching out, this is the place to begin something that counts. 
+          </motion.p>
       </section>
 
       {/* Contact Options */}
@@ -64,12 +64,12 @@ export default function IntroContactSection() {
               key={title}
               whileHover={{ y: -4, scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="group block bg-white hover:bg-blue-900 text-blue-900 hover:text-white transition-colors rounded-2xl shadow-md p-6 text-center cursor-pointer"
+              className="group block bg-white hover:bg-[#2330ff] text-[#2330ff] hover:text-white transition-colors rounded-2xl shadow-md p-6 text-center cursor-pointer"
               target={href.startsWith("http") || href.startsWith("mailto:") ? "_blank" : undefined}
               rel={href.startsWith("http") || href.startsWith("mailto:") ? "noopener noreferrer" : undefined}
             >
               <div className="mb-4 flex justify-center">
-                <Icon className="w-8 h-8 text-blue-900 group-hover:text-white transition-colors duration-300" />
+                <Icon className="w-8 h-8 text-[#2330ff] group-hover:text-white transition-colors duration-300" />
               </div>
               <h3 className="text-lg font-semibold">{title}</h3>
               <p className="text-sm mt-2 text-gray-600 group-hover:text-gray-300 transition-colors">
@@ -81,7 +81,7 @@ export default function IntroContactSection() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-900 text-white py-16 text-center px-6">
+      <section className="bg-[#2330ff] text-white py-16 text-center px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

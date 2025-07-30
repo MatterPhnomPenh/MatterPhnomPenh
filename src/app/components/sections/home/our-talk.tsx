@@ -109,8 +109,8 @@ export default function OurTalkSection() {
   return (
     <section className="py-12 bg-white">
       <div className="mx-auto text-left mb-12 md:px-10 px-6 lg:px-10 relative z-10">
-        <h2 className="text-5xl font-bold text-blue-900 mb-2 font-san">OUR TALK</h2>
-        <p className="space-y-4 text-gray-900 text-base md:text-lg leading-relaxed font-light">You were never meant to do life alone</p>
+        <h2 className="text-5xl font-bold text-[#2330ff] mb-2 font-san">OUR TALK</h2>
+        <p className="space-y-4 text-gray-900 text-base md:text-lg leading-relaxed font-light">Where honest talk brings us closer</p>
       </div>
 
       <div className="overflow-hidden relative z-10">
@@ -143,14 +143,14 @@ export default function OurTalkSection() {
       <div className="flex justify-end mt-6 space-x-3 px-6 sm:px-10 relative z-10">
         <button
           onClick={prevSlide}
-          className="p-2 border border-blue-900 rounded-full text-blue-900 hover:text-white hover:bg-blue-900 disabled:opacity-30"
+          className="p-2 border border-[#2330ff] rounded-full text-[#2330ff] hover:text-white hover:bg-[#2330ff] disabled:opacity-30"
           disabled={currentSlide === 0}
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
         <button
           onClick={nextSlide}
-          className="p-2 border border-blue-900 rounded-full text-blue-900 hover:text-white hover:bg-blue-900 disabled:opacity-30"
+          className="p-2 border border-[#2330ff] rounded-full text-[#2330ff] hover:text-white hover:bg-[#2330ff] disabled:opacity-30"
           disabled={currentSlide >= maxIndex}
         >
           <ChevronRight className="w-4 h-4" />

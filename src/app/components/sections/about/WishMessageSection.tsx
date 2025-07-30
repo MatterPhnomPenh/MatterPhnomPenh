@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function WishMessageSection() {
   return (
-    <section className="relative bg-blue-900 w-full px-10 py-20 flex justify-center items-center">
+    <section className="relative bg-[#2330ff] w-full px-10 py-20 flex justify-center items-center">
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-10 relative z-10">
 
         {/* MP4 Video Thumbnail */}
@@ -38,7 +38,7 @@ export default function WishMessageSection() {
             href="https://youtu.be/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center border border-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-white hover:text-blue-900 transition"
+            className="inline-flex items-center justify-center border border-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-white hover:text-[#2330ff] transition"
           >
             Watch Now <ArrowRight className="ml-2 w-4 h-4" />
           </a>

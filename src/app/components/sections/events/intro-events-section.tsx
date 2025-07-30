@@ -25,7 +25,7 @@ export default function IntroEventsSection() {
 
       {/* Foreground Content */}
       <div className="mx-auto relative z-10">
-        <h2 className="text-2xl md:text-6xl font-sans font-bold text-blue-900">
+        <h2 className="text-2xl md:text-6xl font-sans font-bold text-[#2330ff]">
           Matter&apos;s
           <br />
           Events 
@@ -33,7 +33,7 @@ export default function IntroEventsSection() {
           Creative Meetup       
         </h2>
 
-        <p className="text-xl md:text-2xl font-sans font-light text-blue-900 py-12">
+        <p className="text-xl md:text-2xl font-sans font-light text-[#2330ff] py-12">
           Connecting Matter&apos;s
           <br className="block md:hidden" />
           <span className="hidden md:inline"> </span>
@@ -42,7 +42,7 @@ export default function IntroEventsSection() {
 
 
         <Link href="#new-event-section">
-          <button className="flex items-center border border-blue-900 uppercase px-4 py-2 bg-blue-900 text-white rounded-full font-sans font-medium hover:bg-transparent hover:text-blue-900 transition-colors text-sm md:text-base">
+          <button className="flex items-center border border-[#2330ff] uppercase px-4 py-2 bg-[#2330ff] text-white rounded-full font-sans font-medium hover:bg-transparent hover:text-[#2330ff] transition-colors text-sm md:text-base">
             YMH to our next event
             <motion.div
               className="ml-3"

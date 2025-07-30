@@ -65,7 +65,7 @@ const AboutUsSection = React.forwardRef<HTMLElement>((props, ref) => {
           className="text-center mb-12"
         >
         <div className="px-6 sm:px-8 md:px-10 ">
-          <h1 className="text-4xl sm:text-6xl font-sans font-bold text-blue-900">
+          <h1 className="text-4xl sm:text-6xl font-sans font-bold text-[#2330ff]">
             OUR HOME TEAM
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -105,7 +105,7 @@ const AboutUsSection = React.forwardRef<HTMLElement>((props, ref) => {
                 </div>
 
                 <div className="text-center">
-                  <h3 className="font-bold text-xl sm:text-2xl text-blue-900">
+                  <h3 className="font-bold text-xl sm:text-2xl text-[#2330ff]">
                     {member.name}
                   </h3>
                 </div>

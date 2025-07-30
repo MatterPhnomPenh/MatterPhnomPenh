@@ -33,7 +33,7 @@ const VideoSection = React.forwardRef<HTMLElement, VideoSectionProps>(
       videoSrc,
       thumbnailSrc,
       videoType = 'video/mp4',
-      id = 'video-section',
+      id = '',
       className = '',
       sectionClassName = '',
       videoClassName = '',

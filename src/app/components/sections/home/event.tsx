@@ -30,7 +30,7 @@ export default function Connect() {
 
         {/* Right: Text Content + Buttons */}
         <div className="space-y-6 text-center lg:text-left">
-          <h2 className="text-4xl font-bold text-blue-900 leading-tight">
+          <h2 className="text-4xl font-bold text-[#2330ff] leading-tight">
             YOU WERE NEVER MEANT TO DO LIFE ALONE
           </h2>
           <p className="text-gray-900 font-light text-lg">
@@ -45,7 +45,7 @@ export default function Connect() {
               <Link
                 key={label}
                 href={href}
-                className="block w-full text-center border border-blue-900 py-3 px-6 text-blue-900 text-sm font-light hover:bg-blue-900 hover:text-white transition"
+                className="block w-full text-center border border-[#2330ff] py-3 px-6 text-[#2330ff] text-sm font-light hover:bg-[#2330ff] hover:text-white transition"
               >
                 {label}
               </Link>

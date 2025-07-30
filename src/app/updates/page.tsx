@@ -14,7 +14,6 @@ export default function UpdatesPage() {
   return (
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
       <InstagramNewsSection/>      
-      
       <Footer />
     </MainLayout>
   );

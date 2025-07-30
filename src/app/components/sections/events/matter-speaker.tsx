@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function MatterSection() {
   return (
-    <section className="relative w-full min-h-screen bg-blue-900 flex items-center justify-center overflow-hidden py-48 px-10">
+    <section className="relative w-full min-h-screen bg-[#2330ff] flex items-center justify-center overflow-hidden py-48 px-10">
       {/* Left Side - Heading */}
       <div className="w-full md:w-1/2 text-white text-left mb-6 md:mb-0">
         <motion.h1

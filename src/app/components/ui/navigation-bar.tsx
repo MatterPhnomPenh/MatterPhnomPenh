@@ -69,7 +69,7 @@ export default function NavigationBar({ activeSection = "about" }: NavigationBar
           <div className="flex-shrink-0 relative overflow-hidden">
             <Link
               href="/"
-              className="block text-2xl lg:text-5xl font-bold text-blue-900 tracking-tight hover:opacity-80 transition-opacity"
+              className="block text-2xl lg:text-5xl font-bold text-[#2330ff] tracking-tight hover:opacity-80 transition-opacity"
             >
               <div className="relative flex items-center">
                 <span className="inline-block">M</span>
@@ -102,11 +102,11 @@ export default function NavigationBar({ activeSection = "about" }: NavigationBar
                   <div className="flex items-center gap-2 cursor-pointer select-none">
                     <Link
                       href={link.href}
-                      className={`relative text-sm lg:text-2xl font-bold transition-colors duration-200 text-blue-900`}
+                      className={`relative text-sm lg:text-2xl font-bold transition-colors duration-200 text-[#2330ff]`}
                     >
                       {link.label}
                       <span
-                        className={`absolute -bottom-1 left-0 h-0.5 bg-blue-900 transition-all duration-300 ${
+                        className={`absolute -bottom-1 left-0 h-0.5 bg-[#2330ff] transition-all duration-300 ${
                           showUnderline ? "w-full" : "w-0"
                         }`}
                       />
@@ -125,7 +125,7 @@ export default function NavigationBar({ activeSection = "about" }: NavigationBar
                           <li key={subLink.id}>
                             <Link
                               href={subLink.href}
-                              className="block py-2 px-4 text-sm lg:text-lg text-blue-900 font-medium hover:text-blue-900 hover:bg-blue-50 transition-colors duration-150"
+                              className="block py-2 px-4 text-sm lg:text-lg text-[#2330ff] font-medium hover:text-[#2330ff] hover:bg-blue-50 transition-colors duration-150"
                             >
                               {subLink.label}
                             </Link>
@@ -139,13 +139,13 @@ export default function NavigationBar({ activeSection = "about" }: NavigationBar
                 <Link
                   key={link.id}
                   href={link.href}
-                  className={`relative text-sm lg:text-2xl font-bold transition-colors duration-200 text-blue-900`}
+                  className={`relative text-sm lg:text-2xl font-bold transition-colors duration-200 text-[#2330ff]`}
                   onMouseEnter={() => setHoveredLink(link.id)}
                   onMouseLeave={() => setHoveredLink(null)}
                 >
                   {link.label}
                   <span
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-blue-900 transition-all duration-300 ${
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-[#2330ff] transition-all duration-300 ${
                       showUnderline ? "w-full" : "w-0"
                     }`}
                   />
@@ -164,7 +164,7 @@ export default function NavigationBar({ activeSection = "about" }: NavigationBar
                   return newState;
                 });
               }}
-              className="p-2 text-blue-600 hover:text-blue-900 transition-colors"
+              className="p-2 text-blue-600 hover:text-[#2330ff] transition-colors"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -181,7 +181,7 @@ export default function NavigationBar({ activeSection = "about" }: NavigationBar
                   <>
                     <button
                       onClick={() => setIsEventsOpen(!isEventsOpen)}
-                      className="flex items-center justify-between w-full text-blue-900 font-semibold text-lg py-2"
+                      className="flex items-center justify-between w-full text-[#2330ff] font-semibold text-lg py-2"
                     >
                       {link.label}
                       {isEventsOpen ? <ChevronUp /> : <ChevronDown />}
@@ -217,7 +217,7 @@ export default function NavigationBar({ activeSection = "about" }: NavigationBar
                 ) : (
                   <Link
                     href={link.href}
-                    className="block text-blue-900 text-lg font-semibold py-2"
+                    className="block text-[#2330ff] text-lg font-semibold py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.label}

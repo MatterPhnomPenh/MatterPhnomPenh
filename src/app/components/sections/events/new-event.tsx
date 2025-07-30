@@ -14,7 +14,7 @@ export default function ConnectSection() {
     <section
       id="new-event-section"
       ref={ref}
-      className="relative w-full min-h-screen bg-blue-900 flex items-center justify-center overflow-hidden py-48"
+      className="relative w-full min-h-screen bg-[#2330ff] flex items-center justify-center overflow-hidden py-48"
     >
       {/* CONNECT text in background */}
       <motion.h1
@@ -62,15 +62,12 @@ export default function ConnectSection() {
         transition={{ duration: 2, delay: 0.3 }}
         className="absolute bottom-[30%] left-1/2 transform -translate-x-1/2 w-[150%] -rotate-[-8deg] bg-yellow-300 text-black font-semibold py-2 px-4 text-sm sm:text-base whitespace-nowrap rounded flex justify-center gap-6 z-20"
       >
-        <span>DO NOT CROSS</span>
-        <span>CRIME SCENE</span>
-        <span>CAUTION</span>
-        <span>DO NOT ENTER</span>
-        <span>CRIME SCENE</span>
-        <span>CAUTION</span>
-        <span>DO NOT ENTER</span>
-        <span>DO NOT CROSS</span>
-        <span>CRIME SCENE</span>
+         <span>BELIEVE. BELONG. BECOME.</span>
+        <span>YOU MATTER HERE</span>
+        <span>BELIEVE. BELONG. BECOME.</span>
+        <span>YOU MATTER HERE</span>
+        <span>BELIEVE. BELONG. BECOME.</span>
+        <span>YOU MATTER HERE</span>
       </motion.div>
     </section>
   );

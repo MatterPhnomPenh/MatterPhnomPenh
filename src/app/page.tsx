@@ -11,7 +11,7 @@ import MainLayout from "./components/layouts/main-layout";
 import Footer from "./components/ui/footer";
 import { useNavigation } from "./components/hooks/use-navigation";
 import RealEstate from "./components/sections/home/our-talk";
-import Connect from "./components/sections/home/connect-section";
+import Connect from "./components/sections/home/event";
 import IntroHomeSection from "./components/sections/home/intro-home-section";
 import MovingForward from "./components/sections/home/moving_forward";
 import SparklesBackground from "./components/ui/sparkles-motion";
@@ -50,7 +50,7 @@ export default function HomePage() {
       {showMainContent && (
         <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
           <IntroHomeSection />
-          <SparklesBackground charColor="blue" />
+          <SparklesBackground charColor="#2330ff" />
           <MovingForward />
           <RealEstate />
           <Connect />

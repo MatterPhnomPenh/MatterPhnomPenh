@@ -86,7 +86,7 @@ export default function MatterFoundation() {
   return (
     <section className="py-16 bg-gray-100">
       <div className="mx-auto text-left mb-12 px-6 md:px-10">
-        <h2 className="text-4xl md:text-6xl font-bold text-blue-900 mb-4 font-sans">
+        <h2 className="text-4xl md:text-6xl font-bold text-[#2330ff] mb-4 font-sans">
           Foundation<sup className="text-xl md:text-2xl align-super">M</sup>
         </h2>
         <p className="text-base md:text-lg text-black font-light">
@@ -129,14 +129,14 @@ export default function MatterFoundation() {
       <div className="flex justify-end mt-6 px-4 space-x-3">
         <button
           onClick={prevSlide}
-          className="p-2 border border-blue-900 bg-white rounded-full text-blue-900 hover:bg-blue-900 hover:text-white disabled:opacity-30"
+          className="p-2 border border-[#2330ff] bg-white rounded-full text-[#2330ff] hover:bg-[#2330ff] hover:text-white disabled:opacity-30"
           disabled={currentSlide === 0}
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
         <button
           onClick={nextSlide}
-          className="p-2 border border-blue-900 rounded-full bg-white text-blue-900 hover:bg-blue-900 hover:text-white disabled:opacity-30"
+          className="p-2 border border-[#2330ff] rounded-full bg-white text-[#2330ff] hover:bg-[#2330ff] hover:text-white disabled:opacity-30"
           disabled={currentSlide >= slides.length - slidesPerPage}
         >
           <ChevronRight className="w-4 h-4" />

@@ -35,7 +35,7 @@ const InstagramNewsSection = React.forwardRef<HTMLElement>((props, ref) => {
   }, []);
 
   return (
-    <section ref={ref} className="min-h-screen bg-trasparent text-blue-900 pt-24">
+    <section ref={ref} className="min-h-screen bg-trasparent text-[#2330ff] pt-24">
       <div className="w-full mx-auto px-10 py-24">
         <h2 className="text-left text-4xl md:text-6xl font-bold font-sans tracking-tight mb-16">
           See What We’re Sharing
@@ -87,7 +87,7 @@ const InstagramNewsSection = React.forwardRef<HTMLElement>((props, ref) => {
           <Link href="https://instagram.com/originskh" target="_blank">
             <motion.button
               whileHover={{ scale: 1.05 }}
-              className="bg-blue-900 border border-blue-900 text-white px-6 py-3 text-lg rounded-full font-semibold hover:bg-transparent hover:text-blue-900 transition"
+              className="bg-[#2330ff] border border-[#2330ff] text-white px-6 py-3 text-lg rounded-full font-semibold hover:bg-transparent hover:text-[#2330ff] transition"
             >
               Explore More
             </motion.button>

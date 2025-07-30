@@ -7,7 +7,7 @@ import TitleSlideShow from "../components/sections/about/title-slideshow";
 import IntroAboutSection from "../components/sections/about/intro-about-section";
 import WishMessageSection from "../components/sections/about/WishMessageSection";
 import AboutUsSection from "../components/sections/about/about-us-section";
-import VideoSection from "../components/sections/video-section";
+import VideoSection from "../components/sections/about/video-section";
 
 
 export default function AboutPage() {
@@ -21,7 +21,7 @@ export default function AboutPage() {
       <VideoSection
         videoSrc="/videos/1.mp4"
         thumbnailSrc={"/origins-thumbnail.png"}
-        id=""
+        id="video-about"
         showControls={true}
         autoPlay={false}
         muted={false}

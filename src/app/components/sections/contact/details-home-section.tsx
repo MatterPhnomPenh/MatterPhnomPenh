@@ -43,7 +43,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative bg-blue-900 text-white px-4 pb-32 md:pb-48 min-h-screen overflow-hidden flex items-center justify-center"
+      className="relative bg-[#2330ff] text-white px-4 pb-32 md:pb-48 min-h-screen overflow-hidden flex items-center justify-center"
     >
       
       {/* Blurred background glow */}

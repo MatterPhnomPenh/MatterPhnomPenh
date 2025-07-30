@@ -19,7 +19,7 @@ export default function TitleSlideShow() {
           {doubledClients.map((client, idx) => (
             <div
               key={`${client.name}-${idx}`}
-              className="inline-block flex-shrink-0 text-blue-900 text-xl font-bold px-2"
+              className="inline-block flex-shrink-0 text-[#2330ff] text-xl font-bold px-2"
             >
               {client.name}
             </div>

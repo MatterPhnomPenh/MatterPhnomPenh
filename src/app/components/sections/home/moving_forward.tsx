@@ -28,7 +28,7 @@ const images = [
 
 export default function MovingForward() {
   return (
-    <section className="bg-transparent w-full px-6 md:px-10 py-20 md:py-32">
+    <section id="moving-forward" className="bg-transparent w-full px-6 md:px-10 py-20 md:py-32">
       <div className="mx-auto grid md:grid-cols-2 gap-10 items-center relative z-10">
         {/* Left - Animated Images */}
         <div className="space-y-6">
@@ -46,7 +46,7 @@ export default function MovingForward() {
 
         {/* Right - Static Content */}
         <div className="text-left">
-          <h2 className="text-3xl md:text-4xl uppercase text-blue-900 mb-6 font-san font-bold">
+          <h2 className="text-3xl md:text-4xl uppercase text-[#2330ff] mb-6 font-san font-bold">
             Moving Forward, Together
           </h2>
           <div className="space-y-4 text-gray-900 text-base md:text-lg leading-relaxed font-light">
@@ -70,7 +70,7 @@ export default function MovingForward() {
                   href="https://t.me/phnompenhmatters" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-center w-full border border-blue-900 px-6 py-3 bg-blue-900 text-white text-sm font-san uppercase tracking-wider hover:bg-white hover:text-blue-900 transition-all"
+                  className="block text-center w-full border border-[#2330ff] px-6 py-3 bg-[#2330ff] text-white text-sm font-san uppercase tracking-wider hover:bg-white hover:text-[#2330ff] transition-all"
                 >
                   Stay Connected
                 </Link>

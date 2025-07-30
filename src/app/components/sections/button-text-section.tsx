@@ -21,7 +21,7 @@ export default function ButtonTextSection({
               {heading}
             </h3>
             <Link href={href}>
-              <button className="bg-blue-900 border border-blue-900 text-white px-6 py-3 text-lg rounded-full font-semibold hover:bg-transparent hover:text-blue-900 transition">
+              <button className="bg-[#2330ff] border border-[#2330ff] text-white px-6 py-3 text-lg rounded-full font-semibold hover:bg-transparent hover:text-blue-900 transition">
                 {buttonText}
               </button>
             </Link>

@@ -68,7 +68,7 @@ export default function MatterFest() {
   };
 
   return (
-    <section className="relative flex flex-col items-center justify-center w-full min-h-screen bg-blue-900 text-white overflow-hidden px-4 md:px-0">
+    <section className="relative flex flex-col items-center justify-center w-full min-h-screen bg-[#2330ff] text-white overflow-hidden px-4 md:px-0">
       {/* Content container with reversed order on mobile */}
       <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl">
         {/* Text section - comes first on mobile */}
@@ -78,15 +78,14 @@ export default function MatterFest() {
           variants={textVariants}
           className={`w-full md:w-1/2 ${isMobile ? 'order-1' : 'order-2'} md:px-12 z-10`}
         >
-          <h1 className={`${isMobile ? 'text-3xl' : 'text-5xl'} font-extrabold mb-6`}>Listen our latest album</h1>
+          <h1 className={`${isMobile ? 'text-3xl' : 'text-5xl'} font-extrabold mb-6`}>Let’s Connect Because Every Voice Matters</h1>
           <p className={`${isMobile ? 'text-base' : 'text-lg'} text-gray-300 leading-relaxed mb-8`}>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit neque ipsum, dui nibh ut risus et tristique non ultrices. Cras massa eget mauris pharetra diam quis leo, sit. Non non accumsan nunc aliquam cursus faucibus
-          </p>
+            Whether you’re reaching out about the festival, volunteering, or press, this is where meaningful conversations begin.&quot;          </p>
           <motion.button 
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
-            className="bg-white border border-white text-blue-900 uppercase px-6 py-3 text-lg rounded-lg font-semibold hover:bg-transparent hover:text-white transition"
+            className="bg-white border border-white text-[#2330ff] uppercase px-6 py-3 text-lg rounded-lg font-semibold hover:bg-transparent hover:text-white transition"
           >
             Book Now
           </motion.button>

@@ -100,7 +100,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="text-center space-y-6"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6 tracking-wide">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#2330ff] mb-6 tracking-wide">
             Stay Connected
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -119,12 +119,12 @@ export default function Footer() {
           <div className="grid md:grid-cols-3 gap-10">
             {/* Text */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-blue-900">News & Updates</h3>
+              <h3 className="text-2xl font-bold text-[#2330ff]">News & Updates</h3>
               <p className="text-gray-600">
                 Subscribe to get the latest news and updates right to your inbox.
               </p>
-              <div className="flex items-center gap-2 text-blue-900">
-                <div className="w-8 h-0.5 bg-blue-900"></div>
+              <div className="flex items-center gap-2 text-[#2330ff]">
+                <div className="w-8 h-0.5 bg-[#2330ff]"></div>
                 <span className="text-sm font-medium">Stay informed</span>
               </div>
             </div>
@@ -173,7 +173,7 @@ export default function Footer() {
                     type="submit"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="w-full sm:w-auto bg-blue-900 border border-bg-blue-900 text-white px-8 py-4 rounded-xl hover:bg-white hover:text-blue-900 transition-all duration-300 font-medium"
+                    className="w-full sm:w-auto bg-[#2330ff] border border-bg-[#2330ff] text-white px-8 py-4 rounded-xl hover:bg-white hover:text-[#2330ff] transition-all duration-300 font-medium"
                   >
                     Subscribe
                   </motion.button>
@@ -231,15 +231,15 @@ export default function Footer() {
               <motion.button
                 whileHover={{ rotate: 10 }}
                 onClick={() => setIsPopupOpen(true)}
-                className="bg-blue-900 text-white rounded-xl w-12 h-12 flex items-center justify-center font-bold text-xl shadow-md"
+                className="bg-[#2330ff] text-white rounded-xl w-12 h-12 flex items-center justify-center font-bold text-xl shadow-md"
               >
                 M
               </motion.button>
-              <span className="text-xl font-bold text-blue-900">MATTER</span>
+              <span className="text-xl font-bold text-[#2330ff]">MATTER</span>
             </div>
             <div className="space-y-4 text-gray-600">
               <div className="flex items-center gap-3 group">
-                <div className="p-2 bg-blue-900 rounded-lg hover:bg-white transition text-white hover:text-blue-900">
+                <div className="p-2 bg-[#2330ff] rounded-lg hover:bg-white transition text-white hover:text-[#2330ff]">
                   <Phone className="w-5 h-5" />
                 </div>
                 <a href="tel:+855123456789" className="hover:text-blue-600 transition">
@@ -247,7 +247,7 @@ export default function Footer() {
                 </a>
               </div>
               <div className="flex items-start gap-3 group">
-                <div className="p-2 bg-blue-900 rounded-lg hover:bg-white transition text-white hover:text-blue-900">
+                <div className="p-2 bg-[#2330ff] rounded-lg hover:bg-white transition text-white hover:text-[#2330ff]">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="space-y-2">
@@ -270,18 +270,18 @@ export default function Footer() {
 
           {/* Company Info */}
           <div className="text-gray-600 space-y-4">
-            <h3 className="text-xl font-bold text-blue-900">YOU MATTER HERE</h3>
+            <h3 className="text-xl font-bold text-[#2330ff]">YOU MATTER HERE</h3>
             <p className="leading-relaxed">
               We’re all an empty matter without Him, yet we matter to Him.
             </p>
             <p className="mt-4">
-              <span className="font-bold text-blue-900">Address:</span> Sangkat Daeum Thkov, Khan Chamkar Mon, Phnom Penh, Cambodia
+              <span className="font-bold text-[#2330ff]">Address:</span> Sangkat Daeum Thkov, Khan Chamkar Mon, Phnom Penh, Cambodia
             </p>
           </div>
 
           {/* Social Icons */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-blue-900">Connect With Us</h3>
+            <h3 className="text-xl font-bold text-[#2330ff]">Connect With Us</h3>
             <div className="flex flex-wrap gap-3">
               {socialLinks.map(({ Icon, href, label }, index) => (
                 <motion.a
@@ -289,7 +289,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white border border-gray-200 text-blue-900 rounded-xl flex items-center justify-center hover:bg-blue-50 transition-all shadow-sm hover:shadow-md"
+                  className="w-12 h-12 bg-white border border-gray-200 text-[#2330ff] rounded-xl flex items-center justify-center hover:bg-blue-50 transition-all shadow-sm hover:shadow-md"
                   aria-label={label}
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.95 }}
