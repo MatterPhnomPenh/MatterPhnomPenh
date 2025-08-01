@@ -56,14 +56,14 @@ export const TEAM_MEMBERS: TeamMember[] = [
       position: ""
     },
     {
-      name: "Lin Juvie",
-      role: "Head of Creative Team",
+      name: "Emma Stone",
+      role: "Marketing Lead",
       description: "Amplifies our message, connecting the Mosaic Event to a global audience.",
       image: "/person.png",
       id: "",
       position: ""
     },
-    {
+     {
       name: "Emma Stone",
       role: "Marketing Lead",
       description: "Amplifies our message, connecting the Mosaic Event to a global audience.",
@@ -79,22 +79,22 @@ export const TEAM_MEMBERS: TeamMember[] = [
       id: "",
       position: ""
     },
-        {
+    {
           name: "Emma Stone",
           role: "Marketing Lead",
           description: "Amplifies our message, connecting the Mosaic Event to a global audience.",
           image: "/person.png",
           id: "",
           position: ""
-        },
-        {
+    },
+    {
           name: "Emma Stone",
           role: "Marketing Lead",
           description: "Amplifies our message, connecting the Mosaic Event to a global audience.",
           image: "/person.png",
           id: "",
           position: ""
-        },
+    },
 ];
 
 // Helper function to get team member by ID
