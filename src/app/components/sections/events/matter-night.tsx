@@ -29,7 +29,7 @@ export default function MatterNightSection() {
       <div
         className="w-full md:w-1/2 h-64 sm:h-96 md:h-[800px] bg-cover bg-center"
         style={{
-          backgroundImage: "url('/matter-night.png')",
+          backgroundImage: "url('/images/matter-night.jpg')",
         }}
       />
     </section>

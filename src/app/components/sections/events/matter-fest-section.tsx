@@ -7,9 +7,9 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
 const albums = [
-  { id: 1, title: "", image: "/o3v2.png" },
-  { id: 2, title: "", image: "/o2v2.png" },
-  { id: 3, title: "", image: "/o1v2.png" },
+  { id: 1, title: "", image: "/images/DSC05149.jpg" },
+  { id: 2, title: "", image: "/images/DSC05185.jpg" },
+  { id: 3, title: "", image: "/images/DSC04811.jpg" },
 ];
 
 export default function MatterFest() {
@@ -103,6 +103,7 @@ export default function MatterFest() {
                 src={albums[nextIndex].image}
                 alt=""
                 fill
+                priority 
                 className="object-cover opacity-70"
               />
             </div>

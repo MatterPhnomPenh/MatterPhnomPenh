@@ -10,7 +10,6 @@ import Image from "next/image";
 
 interface Slide {
   id: number;
-  category: string;
   title: string;
   image: string;
 }
@@ -23,52 +22,29 @@ export default function OurTalkSection() {
   const slides: Slide[] = [
     {
       id: 1,
-      category: "Events",
-      title: "BICC International Convention Centre",
-      image: "our-talk1.jpg",
+      title: "None Title",
+      image: "/images/DSC04882.jpg",
     },
     {
       id: 2,
-      category: "Events",
-      title: "Golf Driving Range & Course",
-      image: "our-talk2.jpg",
+      title: "None Title",
+      image: "/images/DSC05252.jpg",
     },
     {
       id: 3,
-      category: "News",
-      title: "International Financial Centre (IFC)",
-      image: "our-talk3.jpg",
+      title: "None Title",
+      image: "/images/DSC05260.jpg",
     },
     {
       id: 4,
-      category: "Events",
-      title: "River Festival Parade",
-      image: "our-talk4.jpg",
+      title: "None Title",
+      image: "/images/DSC05286.jpg",
     },
     {
       id: 5,
-      category: "Events",
-      title: "Night Market Vibes",
-      image: "our-talk5.jpg",
+      title: "None Title",
+      image: "/images/DSC05265.jpg",
     },
-    {
-      id: 6,
-      category: "Events",
-      title: "River Festival Parade",
-      image: "our-talk6.jpg",
-    },
-    {
-      id: 7,
-      category: "News",
-      title: "Sunset Over Tonle Sap",
-      image: "our-talk7.jpg",
-    },
-    {
-      id: 8,
-      category: "News",
-      title: "Silk Island Tour",
-      image: "our-talk8.jpg",
-    }
   ];
 
   // Detect mobile screen size
@@ -125,9 +101,10 @@ export default function OurTalkSection() {
             >
               <div className="relative w-full h-[600px]">
                 <Image
-                  src={`/${slide.image}`}
+                  src={`${slide.image}`}
                   alt={slide.title}
                   fill
+                  priority
                   className="object-cover"
                 />
                 <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent text-white text-center px-4 py-6">

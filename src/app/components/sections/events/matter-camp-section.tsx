@@ -8,7 +8,7 @@ export default function MatterCampSection() {
         <div
         className="relative w-full h-[800px] bg-cover bg-center overflow-hidden flex items-center justify-center text-center"
         style={{
-            backgroundImage: "url('/chill-out.jpg')", // Rename your uploaded image to `matter-camp.jpg` in /public
+            backgroundImage: "url('/images/camp.jpg')", // Rename your uploaded image to `matter-camp.jpg` in /public
         }}
         >
         <div className="absolute inset-0 bg-black/50 z-0" />

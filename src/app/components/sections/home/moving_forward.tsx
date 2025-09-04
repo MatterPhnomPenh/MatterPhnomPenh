@@ -10,17 +10,17 @@ import Link from "next/link";
 
 const images = [
   {
-    src: "/movingforward1.jpg",
+    src: "/images/DSC04836.jpg",
     alt: "movingforward 1",
     delay: 0,
   },
   {
-    src: "/movingforward2.jpg",
+    src: "/images/DSC04917.jpg",
     alt: "movingforward 2",
     delay: 0.5,
   },
   {
-    src: "/movingforward3.jpg",
+    src: "/images/DSC05193.jpg",
     alt: "movingforward 3",
     delay: 0.7,
   },

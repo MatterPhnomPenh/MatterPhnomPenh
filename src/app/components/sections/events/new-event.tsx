@@ -29,7 +29,7 @@ export default function ConnectSection() {
       {/* Foreground image */}
       <div className="relative z-10 max-w-[90vw] max-h-[90vh]">
         <Image
-          src="/about.jpg"
+          src="/images/DSC04772.jpg"
           alt="Event attendees connecting"
           width={800}
           height={1200}
