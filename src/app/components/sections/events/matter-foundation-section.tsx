@@ -84,7 +84,7 @@ export default function MatterFoundation() {
   };
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section id="foundation" className="py-16 bg-gray-100">
       <div className="mx-auto text-left mb-12 px-6 md:px-10">
         <h2 className="text-4xl md:text-6xl font-bold text-[#2330ff] mb-4 font-sans">
           Foundation<sup className="text-xl md:text-2xl align-super">M</sup>

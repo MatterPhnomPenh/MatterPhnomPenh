@@ -33,6 +33,7 @@ export default function NavigationBar({ activeSection = "about" }: NavigationBar
 
   const navLinks = [
     { id: "about", label: "About", href: "/about" },
+    { id: "talk", label: "Talk", href: "/talk" },
     { id: "events", label: "Events", href: "/events" },
     { id: "updates", label: "Updates", href: "/updates" },
     { id: "contact", label: "Contact", href: "/contact" },

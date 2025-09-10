@@ -14,7 +14,7 @@ export default function IntroHomeSection() {
         </p>
         <a
           href="#moving-forward"
-          className="mt-8 flex justify-center cursor-pointer text-[#2330ff] no-underline animate-bounce"
+          className="mt-8 flex cursor-pointer text-[#2330ff] no-underline animate-bounce"
         >
           <ChevronDown className="w-12 h-12 md:w-24 md:h-24" />
         </a>

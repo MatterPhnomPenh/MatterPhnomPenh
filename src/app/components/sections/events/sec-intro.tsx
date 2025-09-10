@@ -31,7 +31,7 @@ export default function ConnectSection() {
         <Image
           src="/images/DSC04772.jpg"
           alt="Event attendees connecting"
-          width={800}
+          width={600}
           height={1200}
           className="object-contain w-full h-auto opacity-100"
           style={{ maxHeight: "90vh", maxWidth: "90vw" }}
@@ -45,7 +45,7 @@ export default function ConnectSection() {
         animate={isInView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 1.5, delay: 0.3 }}
         style={{ zIndex: 5 }}
-        className="absolute bottom-[30%] left-1/2 transform -translate-x-1/2 w-[150%] -rotate-[8deg] bg-yellow-300 text-black font-semibold py-2 px-4 text-sm sm:text-base whitespace-nowrap rounded flex justify-center gap-6"
+        className="absolute bottom-[30%] left-1/2 transform -translate-x-1/2 w-[150%] -rotate-[8deg] bg-yellow-300 text-black font-semibold py-2 px-4 text-sm sm:text-base whitespace-nowrap rounded flex justify-center gap-6 z-20"
       >
         <span>BELIEVE. BELONG. BECOME.</span>
         <span>YOU MATTER HERE</span>
@@ -72,3 +72,5 @@ export default function ConnectSection() {
     </section>
   );
 }
+
+

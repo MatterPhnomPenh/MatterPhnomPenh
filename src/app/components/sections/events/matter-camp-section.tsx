@@ -4,11 +4,11 @@ import { MapPin } from "lucide-react";
 
 export default function MatterCampSection() {
   return (
-    <section className="flex flex-col md:flex-row w-full min-h-screen bg-white text-black overflow-hidden py-32">
+    <section id="camp" className="flex flex-col md:flex-row w-full min-h-screen bg-white text-black overflow-hidden py-32">
         <div
-        className="relative w-full h-[800px] bg-cover bg-center overflow-hidden flex items-center justify-center text-center"
+        className="relative w-full md:h-[800px] h-[400px] bg-cover bg-center overflow-hidden flex items-center justify-center text-center"
         style={{
-            backgroundImage: "url('/images/camp.jpg')", // Rename your uploaded image to `matter-camp.jpg` in /public
+            backgroundImage: "url('/images/camp.jpg')", 
         }}
         >
         <div className="absolute inset-0 bg-black/50 z-0" />
@@ -32,4 +32,5 @@ export default function MatterCampSection() {
     </section>
   );
 }
+
 

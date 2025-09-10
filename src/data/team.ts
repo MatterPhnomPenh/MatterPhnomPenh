@@ -40,61 +40,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
       position: ""
     },
     {
-      name: "So",
-      role: "Event Coordinator",
-      description: "Orchestrates the Mosaic Event, bringing our community together with vibrant energy.",
-      image: "/person.png",
-      id: "",
-      position: ""
-    },
-    {
       name: "Horn Davin",
       role: "Head of Event Team",
       description: "Amplifies our message, connecting the Mosaic Event to a global audience.",
       image: "/ORS_Davin_v60.jpg",
       id: "",
       position: ""
-    },
-    {
-      name: "Emma Stone",
-      role: "Marketing Lead",
-      description: "Amplifies our message, connecting the Mosaic Event to a global audience.",
-      image: "/person.png",
-      id: "",
-      position: ""
-    },
-     {
-      name: "Emma Stone",
-      role: "Marketing Lead",
-      description: "Amplifies our message, connecting the Mosaic Event to a global audience.",
-      image: "/person.png",
-      id: "",
-      position: ""
-    },
-    {
-      name: "Emma Stone",
-      role: "Marketing Lead",
-      description: "Amplifies our message, connecting the Mosaic Event to a global audience.",
-      image: "/person.png",
-      id: "",
-      position: ""
-    },
-    {
-          name: "Emma Stone",
-          role: "Marketing Lead",
-          description: "Amplifies our message, connecting the Mosaic Event to a global audience.",
-          image: "/person.png",
-          id: "",
-          position: ""
-    },
-    {
-          name: "Emma Stone",
-          role: "Marketing Lead",
-          description: "Amplifies our message, connecting the Mosaic Event to a global audience.",
-          image: "/person.png",
-          id: "",
-          position: ""
-    },
+    }
 ];
 
 // Helper function to get team member by ID
