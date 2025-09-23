@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "You Matter Here",
+  title: "Matter Phnom Penh | You Matter Here",
   description: "",
 };
 
