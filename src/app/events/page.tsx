@@ -4,11 +4,12 @@ import { useNavigation } from "../components/hooks/use-navigation";
 import Footer from "../components/ui/footer";
 import MainLayout from "../components/layouts/main-layout";
 import IntroEventsSection from "../components/sections/events/intro-events-section";
-import ConnectSection from "../components/sections/events/sec-intro";
-import MatterFoundation from "../components/sections/events/matter-foundation-section";
-import MatterFest from "../components/sections/events/matter-fest-section";
 import MatterCampSection from "../components/sections/events/matter-camp-section";
+import MatterFest from "../components/sections/events/matter-fest-section";
+import MatterFoundation from "../components/sections/events/matter-foundation-section";
 import MatterNightSection from "../components/sections/events/matter-night";
+import ConnectSection from "../components/sections/events/sec-intro";
+
 
 export default function EventsPage() {
   const { activeSection, scrollToSection } = useNavigation();

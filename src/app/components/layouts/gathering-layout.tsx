@@ -2,19 +2,19 @@
 
 import type React from "react";
 import { MotionValue } from "framer-motion";
-import NavigationBar from "../ui/navigation-bar";
+import NavigationBar from "../ui/navbar/gathering-nav";
 
-interface MainLayoutProps {
+interface GatheringLayoutProps {
   children: React.ReactNode;
   activeSection: string;
   scrollToSection: (sectionId: string) => void;
   navBackground: MotionValue<string>;
 }
 
-export default function MainLayout({
+export default function GatheringLayout({
   children,
   activeSection,
-}: MainLayoutProps) {
+}: GatheringLayoutProps) {
   return (
     <div className="relative">
       <NavigationBar

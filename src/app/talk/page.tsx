@@ -1,10 +1,10 @@
 "use client";
 import { useScroll, useTransform } from "framer-motion";
 import { useNavigation } from "../components/hooks/use-navigation";
-import Footer from "../components/ui/footer";
-import MainLayout from "../components/layouts/main-layout";
 import BlogIntroSection from "../components/sections/talk/intro-talk-section";
 import SocialMediaSection from "../components/sections/talk/details-talk-section";
+import TalkFooter from "../components/ui/footer/talk-footer";
+import MainLayout from "../components/layouts/main-layout";
 
 
 export default function ContactPage() {
@@ -16,7 +16,7 @@ export default function ContactPage() {
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
       <BlogIntroSection />
       <SocialMediaSection />
-\      <Footer />
+      <TalkFooter />
     </MainLayout>
   );
 }

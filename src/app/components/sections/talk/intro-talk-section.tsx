@@ -9,7 +9,7 @@ export default function BlogIntroSection() {
     >
       <div className="mx-auto px-4 relative z-10">
         <div className="space-y-6">
-          <h1 className="text-3xl md:text-5xl font-sans font-bold text-[#2330ff] leading-tight">
+          <h1 className="text-3xl md:text-5xl font-sans font-bold text-[#49C809] leading-tight">
             Welcome to Our Talk
           </h1>
           <p className="text-xl md:text-2xl font-sans text-gray-800 text-justify leading-relaxed">
@@ -27,7 +27,7 @@ export default function BlogIntroSection() {
         <div className="mt-12 flex items-center space-x-4">
           <a
             href="#details-talk"
-            className="inline-flex items-center text-[#2330ff] no-underline hover:text-[#1a22cc] transition-colors font-medium"
+            className="inline-flex items-center text-[#49C809] no-underline hover:text-black transition-colors font-medium"
           >
             Explore Latest Posts
             <ChevronDown className="w-5 h-5 ml-2 animate-bounce" />
@@ -35,7 +35,7 @@ export default function BlogIntroSection() {
           <span className="text-gray-400">|</span>
           <a
             href="#subscribe"
-            className="text-gray-600 no-underline hover:text-[#2330ff] transition-colors"
+            className="text-black no-underline hover:text-[#49C809] transition-colors"
           >
             Subscribe for Updates
           </a>

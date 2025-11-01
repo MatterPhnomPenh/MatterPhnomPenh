@@ -1,26 +1,42 @@
 "use client";
-import { ChevronDown } from 'lucide-react';
+import { useRef } from "react";
 
-export default function IntroAboutSection() {
+function BeenThereSection() {
+  const ref = useRef(null);
 
   return (
-    <section
-      id="intro-about"
-      className="relative w-full bg-transparent py-24 sm:py-24 md:py-48 px-6 md:px-10 text-left "
-    >
-      <div className="mx-auto px-4 relative z-10">
-        <p className="text-2xl md:text-6xl font-sans font-bold text-[#2330ff] text-justify leading-tight">
-          We built You Matter Here to offer a refuge from the noise and rush of life, 
-          where your voice is important, your presence makes a difference, 
-          and your journey is honored every step of the way.
-        </p>
-        <a
-          href="#video-about"
-          className="mt-8 inline-block cursor-pointer text-[#2330ff] no-underline"
+    <section ref={ref} className="w-full py-24 flex items-center justify-center">
+      <div className="w-full max-w-7xl mx-auto flex flex-row items-start justify-between gap-16 px-4">
+        {/* First Column: Large Text */}
+        <div
+          className="flex-1 text-right"
         >
-          <ChevronDown className="w-12 h-12 md:w-24 md:h-24" />
-        </a>
+          <div className="w-128 p-12 rounded-lg text-white">
+            <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl leading-tight ">
+              Our Story is
+            </h2>
+            <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl leading-tight ">
+              Different.....
+            </h2>
+          </div>
+        </div>
+
+        {/* Second Column: Paragraph and Image */}
+        <div
+          className="flex-1 text-lg text-gray-600 leading-relaxed text-left relative"
+        >
+          <div className="w-128">
+            <p className="text-lg text-white leading-relaxed p-12 rounded-lg relative z-10">
+              Unlike traditional search firms, we&apos;ve been part of building innovative companies – like{' '}
+              <span className="bg-yellow-300 font-semibold rounded-xl">Kickstarter</span>,{' '}
+              <span className="bg-red-300 font-semibold rounded-xl">Casper</span> and{' '}
+              <span className="bg-blue-300 font-semibold rounded-xl">Etsy</span> – from the ground up, giving us a deep understanding of what it takes to build effective, thriving teams.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
+
+export default BeenThereSection;

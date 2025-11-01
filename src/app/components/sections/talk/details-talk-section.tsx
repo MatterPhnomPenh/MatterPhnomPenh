@@ -112,7 +112,7 @@ const SocialMediaSection = React.forwardRef<HTMLElement>((props, ref) => {
     <section
       ref={ref}
       id="details-talk"
-      className="min-h-screen bg-gradient-to-b from-blue-50 to-white text-[#2330ff] py-12"
+      className="min-h-screen bg-gradient-to-b from-blue-50 to-white text-[#49C809] py-12"
     >
       <div className="w-full mx-auto px-6 md:px-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
@@ -138,7 +138,7 @@ const SocialMediaSection = React.forwardRef<HTMLElement>((props, ref) => {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-20 h-20 bg-white bg-opacity-90 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
               <svg
-                className="w-10 h-10 text-[#2330ff] ml-1"
+                className="w-10 h-10 text-[#49C809] ml-1"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
@@ -182,7 +182,7 @@ const SocialMediaSection = React.forwardRef<HTMLElement>((props, ref) => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-12 h-12 bg-white bg-opacity-90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
                     <svg
-                      className="w-6 h-6 text-[#2330ff] ml-0.5"
+                      className="w-6 h-6 text-[#49C809] ml-0.5"
                       viewBox="0 0 24 24"
                       fill="currentColor"
                     >
@@ -199,7 +199,7 @@ const SocialMediaSection = React.forwardRef<HTMLElement>((props, ref) => {
 
               <div className="p-4 flex flex-col gap-2 flex-grow">
                 <div className="flex justify-between items-start text-xs text-stone-500 font-medium">
-                  <span className="bg-red-100 text-[#2330ff] px-2 py-1 rounded-full">
+                  <span className="bg-red-100 text-[#49C809] px-2 py-1 rounded-full">
                     YOUTUBE
                   </span>
                   <span>{post.date}</span>
@@ -214,7 +214,7 @@ const SocialMediaSection = React.forwardRef<HTMLElement>((props, ref) => {
                 )}
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-xs text-stone-500">{post.views}</span>
-                  <span className="text-xs text-blue-600 font-medium">
+                  <span className="text-xs text-[#49C809] font-medium">
                     Watch now →
                   </span>
                 </div>
