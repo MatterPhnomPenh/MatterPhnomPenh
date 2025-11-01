@@ -96,7 +96,7 @@ export default function Pastor() {
     <section
       id="new-event-section"
       ref={ref}
-      className="relative w-full min-h-screen bg-black flex flex-col items-center justify-between overflow-hidden py-12"
+      className="relative w-full min-h-screen bg-transparent flex flex-col items-center justify-between overflow-hidden py-24"
     >
       {/* CONNECT text in background */}
       <motion.h1
