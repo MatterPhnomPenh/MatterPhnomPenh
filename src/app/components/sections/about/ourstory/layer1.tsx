@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const Layer1 = () => {
   return (
-    <div className="absolute inset-0 z-10 pointer-events-none">
+    <div className="absolute inset-0 z-10 pointer-events-none bg-transparent">
       <div className="h-full flex items-center justify-center px-6 md:px-10 py-0"> {/* Removed py-10 to prevent overflow clipping */}
         <div className="max-w-6xl mx-auto text-center text-white w-full h-full flex flex-col justify-center"> {/* Added flex-col and h-full to better distribute space */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight flex-shrink-0"> {/* Added flex-shrink-0 to prevent compression */}

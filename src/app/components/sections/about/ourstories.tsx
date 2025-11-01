@@ -9,7 +9,7 @@ interface Layer2Props {
 
 export const OurStories = ({ children }: Layer2Props) => {
   return (
-    <div className="min-h-screen p-4 sm:p-8 md:p-12 lg:p-16">
+    <div className="min-h-screen p-4 sm:p-8 md:p-12 lg:p-16 bg-transparent">
       <div className="mx-auto max-w-4xl space-y-16">
         {/* Who We Are Section */}
         <motion.section

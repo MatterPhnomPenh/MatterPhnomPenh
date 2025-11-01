@@ -5,7 +5,7 @@ function BeenThereSection() {
   const ref = useRef(null);
 
   return (
-    <section ref={ref} className="w-full py-24 flex items-center justify-center">
+    <section ref={ref} className="w-full py-24 flex items-center justify-center ">
       <div className="w-full max-w-7xl mx-auto flex flex-row items-start justify-between gap-16 px-4">
         {/* First Column: Large Text */}
         <div
