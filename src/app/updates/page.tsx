@@ -1,9 +1,8 @@
 "use client";
 import { useScroll, useTransform } from "framer-motion";
 import { useNavigation } from "../components/hooks/use-navigation";
-import Footer from "../components/ui/footer";
 import MainLayout from "../components/layouts/main-layout";
-import InstagramNewsSection from "../components/sections/updates/instagram-news-section";
+import UnderConstructionPage from "../components/sections/under-construction-page";
 
 
 export default function UpdatesPage() {
@@ -13,8 +12,9 @@ export default function UpdatesPage() {
 
   return (
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
-      <InstagramNewsSection/>      
-      <Footer />
+      {/* <InstagramNewsSection/>      
+      <Footer /> */}
+      <UnderConstructionPage />
     </MainLayout>
   );
 }

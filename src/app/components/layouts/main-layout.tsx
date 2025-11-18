@@ -4,6 +4,7 @@ import type React from "react";
 import { MotionValue } from "framer-motion";
 import NavigationBar from "../ui/navigation-bar";
 
+
 interface MainLayoutProps {
   children: React.ReactNode;
   activeSection: string;
@@ -13,12 +14,11 @@ interface MainLayoutProps {
 
 export default function MainLayout({
   children,
-  activeSection,
+  // activeSection,
 }: MainLayoutProps) {
   return (
     <div className="relative">
       <NavigationBar
-        activeSection={activeSection}
       />
       <main className="">{children}</main> 
     </div>

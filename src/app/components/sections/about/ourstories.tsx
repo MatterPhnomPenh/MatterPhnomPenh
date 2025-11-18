@@ -1,95 +1,225 @@
-// File 2: components/Layer2.tsx
-"use client";
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
 
-interface Layer2Props {
-  children?: ReactNode;
-}
+// "use client";
+// import { motion } from "framer-motion";
+// import Link from "next/link";
+// import Image from "next/image";
 
-export const OurStories = ({ children }: Layer2Props) => {
-  return (
-    <div className="min-h-screen p-4 sm:p-8 md:p-12 lg:p-16 bg-transparent">
-      <div className="mx-auto max-w-4xl space-y-16">
-        {/* Who We Are Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="rounded-4xl p-8 md:p-10 flex flex-col text-left shadow-sm border border-gray-100"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 uppercase tracking-wide text-center">
-            Who We Are
-          </h1>
-          <div className="prose prose-lg max-w-none space-y-6">
-            <p className="text-white leading-relaxed">
-              Favor Church is a vibrant and exciting church for imperfect people of all ages, from different backgrounds. We&apos;re based in Metro Manila, Philippines, but our church family can also be found all across the globe.
-            </p>
-            <p className="text-white leading-relaxed">
-              Our church started in 2015, when Senior Pastors James and Kate Aiton, out of a great love for the Filipino people, moved from Australia to the Philippines and started a Connect Group in their condominium unit. This small group eventually grew into a community gathering in a small function room, which turned into our first official Sunday service at a bar in Ortigas Center. It was very raw, but we felt something special, and more people started coming in, meeting Jesus, and finding family.
-            </p>
-            <p className="text-white leading-relaxed">
-              In May 2018, in what was both a step of faith and miracle for our very new church, we opened our own facility inside the Shangri-La Plaza Mall. Our church saw significant growth during this time as we made space for God to continue to bring new people through our doors.
-            </p>
-            <p className="text-white leading-relaxed">
-              We spent much of 2019 and the early part of 2020 praying for a new venue, as we did five services at maximum capacity every Sunday. Our prayers were answered—just very differently from how we imagined—when the COVID-19 pandemic hit the Philippines. Our Shangri-La facility was converted into a studio, and we worked hard to creatively bring the presence of God into people&apos;s homes every week. In November 2020, an opportunity we had been praying for opened up, and we began doing Sunday services at the Grand Ballroom of Crowne Plaza Hotel, a bigger venue where we&apos;re able to gather more people into the room to experience God&apos;s presence together.
-            </p>
-            <p className="text-white leading-relaxed font-medium italic">
-              No matter where we find ourselves, our heart and our vision stays the same: to know God and make him famous.
-            </p>
-          </div>
-        </motion.section>
+// interface PassCardProps {
+//   title: string;
+//   subtitle: string;
+//   image: string;
+//   bgColor: string;
+//   index: number;
+// }
 
-        {/* Where We're Going Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="rounded-4xl p-8 md:p-10 flex flex-col text-left shadow-sm border border-gray-100"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 uppercase tracking-wide text-center">
-            Where We&apos;re Going
-          </h2>
-          <div className="prose prose-lg max-w-none space-y-6">
-            <p className="text-white leading-relaxed">
-              Our vision statement is simple: to know God and make him famous. Knowing God doesn&apos;t just mean knowing about God—it means having a real, intimate relationship with him. We desire to reach people across the Philippines and across the world with the good news of Jesus, helping them to encounter major cities in a real, authentic way. We&apos;re passionate about making God famous, and we believe we&apos;re called to plant churches across the Philippines, Asia, and the world—churches marked by passionate worship, inspired creativity, a hunger for God&apos;s presence, and the power of the Holy Spirit.
-            </p>
-          </div>
-        </motion.section>
+// const PassCard = ({ title, subtitle, image, bgColor, index }: PassCardProps) => {
+//   // Different entrance animations based on card position
+//   const getCardVariants = (index: number) => {
+//     switch (index) {
+//       case 0: // Left card - from bottom left
+//         return {
+//           hidden: { 
+//             opacity: 0, 
+//             y: 100,
+//             x: -100,
+//             rotate: -5 
+//           },
+//           visible: { 
+//             opacity: 1, 
+//             y: 0,
+//             x: 0,
+//             rotate: 0,
+//             transition: {
+//               duration: 0.8,
+//               delay: index * 0.2,
+//               ease: "easeOut"
+//             }
+//           }
+//         };
+//       case 1: // Center card - from bottom center
+//         return {
+//           hidden: { 
+//             opacity: 0, 
+//             y: 100,
+//             scale: 0.8 
+//           },
+//           visible: { 
+//             opacity: 1, 
+//             y: 0,
+//             scale: 1,
+//             transition: {
+//               duration: 0.8,
+//               delay: index * 0.2,
+//               ease: "easeOut"
+//             }
+//           }
+//         };
+//       case 2: // Right card - from bottom right
+//         return {
+//           hidden: { 
+//             opacity: 0, 
+//             y: 100,
+//             x: 100,
+//             rotate: 5 
+//           },
+//           visible: { 
+//             opacity: 1, 
+//             y: 0,
+//             x: 0,
+//             rotate: 0,
+//             transition: {
+//               duration: 0.8,
+//               delay: index * 0.2,
+//               ease: "easeOut"
+//             }
+//           }
+//         };
+//       default:
+//         return {
+//           hidden: { opacity: 0, y: 60 },
+//           visible: { 
+//             opacity: 1, 
+//             y: 0,
+//             transition: { duration: 0.7 }
+//           }
+//         };
+//     }
+//   };
 
-        {/* What We Value Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="rounded-4xl p-8 md:p-10 flex flex-col text-left shadow-sm border border-gray-100"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 uppercase tracking-wide text-center">
-            What We Value
-          </h2>
-          <div className="prose prose-lg max-w-none space-y-6">
-            <p className="text-white leading-relaxed">
-              <strong>PRESENCE</strong> – God&apos;s presence is our ultimate pursuit. In everything, we&apos;re hungry for God to pour out his presence. We know that a moment in God&apos;s presence can change a person&apos;s life, and—we&apos;re all about creating space for those moments. Our understanding of his presence and power is rooted in the bible—which we believe is relevant and true for today and the generations to come.
-            </p>
-            <p className="text-white leading-relaxed">
-              <strong>PEOPLE</strong> – We&apos;re authentic, and accepting of all people. We want to be a genuinely welcoming church, and we value people over process. We call our people our “Favor Fam” because that&apos;s what we are—a family. It&apos;s not perfect, but it&apos;s special!
-            </p>
-            <p className="text-white leading-relaxed">
-              <strong>PRAYER</strong> – We believe in the power of prayer. Everything we do is infused with passionate prayer and believing for God to do what he says in his word and move in power. We don&apos;t pray for victory, we pray from victory! And we pray according to the truths found in his Word.
-            </p>
-            <p className="text-white leading-relaxed">
-              <strong>GENEROSITY</strong> – We&apos;re generous in everything. God has been so generous with us, so we live generous lives. It&apos;s not just about money, but every other aspect—our time, our words, our service. We live life with an open hand. Generosity isn&apos;t something we do, it&apos;s who we are.
-            </p>
-            <p className="text-white leading-relaxed">
-              <strong>CREATIVITY</strong> – In the beginning, God created. The message stays the same, but the method is always changing. We&apos;re passionate about being creative in everything we do, and we believe God has anointed us to reach people through our excellence and creativity.
-            </p>
-          </div>
-        </motion.section>
-      </div>
-      {children}
-    </div>
-  );
-};
+//   const variants = getCardVariants(index);
+
+//   return (
+//     <motion.div
+//       initial="hidden"
+//       whileInView="visible"
+//       viewport={{ once: true, margin: "-100px" }}
+//       variants={variants}
+//       whileHover={{
+//         y: -8,
+//         scale: 1.02,
+//         transition: { duration: 0.3 },
+//       }}
+//       className="group cursor-pointer"
+//     >
+//       <Link href="#" className="block">
+//         <div className="overflow-hidden rounded-3xl shadow-xl bg-white">
+//           {/* Image */}
+//           <div className="relative h-64 md:h-72 w-full">
+//             <Image
+//               src={image}
+//               alt={title}
+//               fill
+//               className="object-cover transition-transform duration-700 group-hover:scale-105"
+//             />
+//           </div>
+
+//           {/* Colored Header */}
+//           <div className={`px-6 py-4 ${bgColor}`}>
+//             <h3 className="text-xl md:text-2xl font-bold text-white uppercase tracking-tight">
+//               {title}
+//             </h3>
+//             <p className="text-white/90 text-sm md:text-base mt-1 font-medium">
+//               {subtitle}
+//             </p>
+//           </div>
+//         </div>
+//       </Link>
+//     </motion.div>
+//   );
+// };
+
+// export default function ExperiencePage() {
+//   const passCards = [
+//     {
+//       title: "General Admission",
+//       subtitle: "GA Plus · Next Gen",
+//       image: "/about.jpg", // Replace with your image path
+//       bgColor: "bg-gradient-to-r from-purple-500 to-purple-600",
+//     },
+//     {
+//       title: "Family Pack",
+//       subtitle: "Ticket Pack (5+) · VousCon x The Assembly",
+//       image: "/about.jpg",
+//       bgColor: "bg-gradient-to-r from-green-500 to-emerald-600",
+//     },
+//     {
+//       title: "10+ Guests",
+//       subtitle: "20+ Guests · 30+ Guests",
+//       image: "/about.jpg",
+//       bgColor: "bg-gradient-to-r from-amber-600 to-amber-700",
+//     },
+//   ];
+
+//   return (
+//     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-20 px-4 sm:px-6 lg:px-8">
+//       <div className="max-w-7xl mx-auto">
+//         {/* Header */}
+//         <motion.div
+//           initial={{ opacity: 0, y: 30 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.7 }}
+//           className="text-center mb-16"
+//         >
+//           <h1 className="text-6xl md:text-8xl font-black text-gray-900 uppercase tracking-tight mb-4">
+//             EXPERIENCE
+//           </h1>
+//           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+//             CHOOSE YOUR PASS TYPE & CUSTOMIZE YOUR TICKET WITH OTHER PERKS
+//           </p>
+//         </motion.div>
+
+//         {/* Pass Cards Grid */}
+//         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+//           {passCards.map((card, index) => (
+//             <PassCard
+//               key={card.title}
+//               title={card.title}
+//               subtitle={card.subtitle}
+//               image={card.image}
+//               bgColor={card.bgColor}
+//               index={index}
+//             />
+//           ))}
+//         </div>
+
+//         {/* Tab Navigation Bar */}
+//         <motion.div
+//           initial={{ opacity: 0, y: 20 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.6, delay: 0.4 }}
+//           className="flex justify-center"
+//         >
+//           <div className="inline-flex bg-white/80 backdrop-blur-sm rounded-full shadow-lg p-2 gap-2">
+//             <div className="px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold rounded-full flex items-center gap-2">
+//               <span className="text-lg">PASS TYPES</span>
+//               <span className="text-2xl">→</span>
+//             </div>
+//             <div className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-full flex items-center gap-2">
+//               <span className="text-lg">BUNDLES</span>
+//               <span className="text-2xl">→</span>
+//             </div>
+//             <div className="px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-700 text-white font-bold rounded-full flex items-center gap-2">
+//               <span className="text-lg">GROUPS</span>
+//               <span className="text-2xl">→</span>
+//             </div>
+//           </div>
+//         </motion.div>
+
+//         {/* CTA Button */}
+//         <motion.div
+//           initial={{ opacity: 0, scale: 0.95 }}
+//           whileInView={{ opacity: 1, scale: 1 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.6, delay: 0.6 }}
+//           className="text-center mt-20"
+//         >
+//           <button className="bg-black text-white px-10 py-5 rounded-full font-bold text-xl uppercase tracking-wider hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl">
+//             Get Your Tickets Now
+//           </button>
+//         </motion.div>
+//       </div>
+//     </div>
+//   );
+// }

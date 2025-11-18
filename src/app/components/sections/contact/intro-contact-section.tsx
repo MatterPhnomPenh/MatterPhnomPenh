@@ -1,99 +1,193 @@
+// "use client";
 
+// import { motion } from "framer-motion";
+// import { Calendar, MessageCircle, Handshake, Mic } from "lucide-react";
 
-"use client";
+// const involvementOptions = [
+//   {
+//     icon: Calendar,
+//     title: "Join Our Gatherings",
+//     description: "Experience our community firsthand. We meet every Saturday at 5 PM for meaningful connections and conversations.",
+//     cta: "View Schedule",
+//     href: "/gathering"
+//   },
+//   {
+//     icon: MessageCircle,
+//     title: "Start a Conversation",
+//     description: "Have questions about faith, community, or personal growth? Let's talk about what matters to you.",
+//     cta: "Send Message",
+//     href: "mailto:matter@originskh.com"
+//   },
+//   {
+//     icon: Handshake,
+//     title: "Partner With Us",
+//     description: "Join us in creating impact through community projects, outreach programs, and social initiatives.",
+//     cta: "Explore Partnerships",
+//     href: "/initiatives"
+//   },
+//   {
+//     icon: Mic,
+//     title: "Share Your Story",
+//     description: "Your journey matters. Share your experiences and inspire others in our community.",
+//     cta: "Learn More",
+//     href: "/talk"
+//   }
+// ];
 
-import { motion } from "framer-motion";
-import { Mail, Headset, Megaphone, Users } from "lucide-react";
+// const videos = [
+//   {
+//     src: "/videos/1.mp4",
+//     title: "Community Moments",
+//     description: "Capturing the essence of our gatherings and connections"
+//   },
+//   {
+//     src: "/videos/2.mp4",
+//     title: "Impact Stories",
+//     description: "Real stories of transformation and growth"
+//   },
+//   {
+//     src: "/videos/3.mp4",
+//     title: "Behind the Scenes",
+//     description: "The heart and soul of what we do"
+//   }
+// ];
 
-const contactOptions = [
-  {
-    Icon: Mail,
-    title: "General Inquiries",
-    desc: "Let’s chat about ideas, projects, or partnerships.",
-    href: "mailto:matter@originskh.com",
-  },
-  {
-    Icon: Headset,
-    title: "Support",
-    desc: "Have questions or need help? We're here for you.",
-    href: "https://t.me/phnompenhmatters",
-  },
-  {
-    Icon: Users,
-    title: "Team & Community",
-    desc: "Join our team to build what truly matters.",
-    href: "https://t.me/phnompenhmatters",
-  },
-  {
-    Icon: Megaphone,
-    title: "Media & Press",
-    desc: "Looking for our press kit or a statement?",
-    href: "https://web.facebook.com/matterphnompenh/",
-  },
-];
+// export default function GetInvolvedSection() {
+//   return (
+//     <main className="bg-white min-h-screen pt-32 pb-24">
+//       {/* Hero */}
+//       <section className="max-w-6xl mx-auto px-6 text-center mb-20">
+//         <motion.div
+//           initial={{ opacity: 0, y: 40 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.7 }}
+//           className="space-y-6"
+//         >
+//           <div className="flex justify-center mb-8">
+//             <div className="w-16 h-px bg-gray-300" />
+//           </div>
+//           <h1 className="text-5xl md:text-7xl font-light tracking-tight text-black mb-6">
+//             Get Involved
+//           </h1>
+//           <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+//             Your presence matters. Discover ways to connect, contribute, and grow with our community.
+//           </p>
+//         </motion.div>
+//       </section>
 
-export default function IntroContactSection() {
-  return (
-    <main className="bg-white min-h-screen pt-24">
-      {/* Hero */}
-      <section className="relative w-full bg-white py-20 px-6 sm:px-12 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#2330ff] mb-4"
-        >
-          Let&apos;s Connect with matter
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-700"
-        >
-          No matter why you&apos;re reaching out, this is the place to begin something that counts. 
-          </motion.p>
-      </section>
+//       {/* Video Showcase */}
+//       <section className="max-w-6xl mx-auto px-6 mb-20">
+//         <motion.div
+//           initial={{ opacity: 0, y: 40 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8 }}
+//           className="text-center mb-12"
+//         >
+//           {/* <h2 className="text-3xl md:text-4xl font-light text-black mb-4">Our Community in Motion</h2>
+//           <p className="text-gray-600 font-light max-w-2xl mx-auto">
+//             Experience the energy and connection that defines our community
+//           </p> */}
+//         </motion.div>
 
-      {/* Contact Options */}
-      <section className="py-20 px-6 sm:px-12">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {contactOptions.map(({ Icon, title, desc, href }) => (
-            <motion.a
-              href={href}
-              key={title}
-              whileHover={{ y: -4, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="group block bg-white hover:bg-[#2330ff] text-[#2330ff] hover:text-white transition-colors rounded-2xl shadow-md p-6 text-center cursor-pointer"
-              target={href.startsWith("http") || href.startsWith("mailto:") ? "_blank" : undefined}
-              rel={href.startsWith("http") || href.startsWith("mailto:") ? "noopener noreferrer" : undefined}
-            >
-              <div className="mb-4 flex justify-center">
-                <Icon className="w-8 h-8 text-[#2330ff] group-hover:text-white transition-colors duration-300" />
-              </div>
-              <h3 className="text-lg font-semibold">{title}</h3>
-              <p className="text-sm mt-2 text-gray-600 group-hover:text-gray-300 transition-colors">
-                {desc}
-              </p>
-            </motion.a>
-          ))}
-        </div>
-      </section>
+//         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+//           {videos.map((video, index) => (
+//             <motion.div
+//               key={video.src}
+//               initial={{ opacity: 0, y: 20 }}
+//               whileInView={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.6, delay: index * 0.1 }}
+//               className="group"
+//             >
+//               <div className="relative overflow-hidden bg-gray-100 aspect-[4/5] mb-4">
+//                 <video
+//                   src={video.src}
+//                   autoPlay
+//                   muted
+//                   loop
+//                   playsInline
+//                   className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+//                 />
+//                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+//               </div>
+//               <h3 className="text-xl font-light text-black mb-2">{video.title}</h3>
+//               <p className="text-gray-600 font-light text-sm">{video.description}</p>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </section>
 
-      {/* CTA Section */}
-      <section className="bg-[#2330ff] text-white py-16 text-center px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold"
-        >
-          Ready to make something that matters?
-        </motion.h2>
-        <p className="mt-4 text-lg max-w-xl mx-auto">
-          Start a conversation with our team today. We&apos;re just one message away.
-        </p>
-      </section>
-    </main>
-  );
-}
+//       {/* Involvement Options */}
+//       <section className="max-w-6xl mx-auto px-6 mb-20">
+//         <motion.div
+//           initial={{ opacity: 0, y: 40 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8 }}
+//           className="text-center mb-12"
+//         >
+//           <h2 className="text-3xl md:text-4xl font-light text-black mb-4">Ways to Engage</h2>
+//           <p className="text-gray-600 font-light max-w-2xl mx-auto">
+//             Find your place and purpose within our growing community
+//           </p>
+//         </motion.div>
+
+//         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+//           {involvementOptions.map(({ icon: Icon, title, description, cta, href }, index) => (
+//             <motion.div
+//               key={title}
+//               initial={{ opacity: 0, y: 20 }}
+//               whileInView={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.6, delay: index * 0.1 }}
+//               className="group"
+//             >
+//               <a
+//                 href={href}
+//                 className="block p-8 border border-gray-200 hover:border-black transition-all duration-300 h-full"
+//               >
+//                 <div className="flex items-start justify-between mb-6">
+//                   <Icon className="w-8 h-8 text-gray-600 group-hover:text-black transition-colors" />
+//                   <span className="text-lg transform group-hover:translate-x-1 transition-transform">→</span>
+//                 </div>
+//                 <h3 className="text-2xl font-light text-black mb-4">{title}</h3>
+//                 <p className="text-gray-600 font-light leading-relaxed mb-6">{description}</p>
+//                 <div className="flex items-center gap-2 text-sm text-gray-500 group-hover:text-black transition-colors">
+//                   <span>{cta}</span>
+//                 </div>
+//               </a>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </section>
+
+//       {/* Quick Contact */}
+//       <section className="max-w-6xl mx-auto px-6">
+//         <motion.div
+//           initial={{ opacity: 0 }}
+//           whileInView={{ opacity: 1 }}
+//           transition={{ duration: 0.6 }}
+//           className="border-t border-gray-200 pt-12 text-center"
+//         >
+//           <h3 className="text-2xl font-light text-black mb-4">Ready to Take the Next Step?</h3>
+//           <p className="text-gray-600 font-light mb-8 max-w-md mx-auto">
+//             We're here to help you find your place and purpose in our community.
+//           </p>
+//           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+//             <a
+//               href="mailto:matter@originskh.com"
+//               className="inline-flex items-center gap-2 border border-black px-6 py-3 text-sm font-light text-black tracking-widest uppercase hover:bg-black hover:text-white transition-all duration-300"
+//             >
+//               Email Us
+//             </a>
+//             <a
+//               href="https://t.me/phnompenhmatters"
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="inline-flex items-center gap-2 border border-gray-300 px-6 py-3 text-sm font-light text-gray-400 tracking-widest uppercase hover:border-black transition-all duration-300"
+//             >
+//               Message on Telegram
+//             </a>
+//           </div>
+//         </motion.div>
+//       </section>
+//     </main>
+//   );
+// }

@@ -33,7 +33,7 @@ const Layer2 = ({ layer2Opacity, cards, cardRotates, itemVariants }: Layer2Props
         opacity: layer2Opacity
       }}
     >
-      <div className="min-h-screen flex flex-col bg-trasparent px-4 sm:px-8 md:px-12 lg:px-16 py-24 overflow-hidden relative">
+      <div className="min-h-screen flex flex-col bg-black px-4 sm:px-8 md:px-12 lg:px-16 py-24 overflow-hidden relative">
         
         {/* Header Caption Section */}
         <section ref={headerRef} className="flex-none relative z-10">

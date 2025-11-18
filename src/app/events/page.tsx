@@ -1,14 +1,8 @@
 "use client";
 import { useScroll, useTransform } from "framer-motion";
 import { useNavigation } from "../components/hooks/use-navigation";
-import Footer from "../components/ui/footer";
+import UnderConstructionPage from "../components/sections/under-construction-page";
 import MainLayout from "../components/layouts/main-layout";
-import IntroEventsSection from "../components/sections/events/intro-events-section";
-import MatterCampSection from "../components/sections/events/matter-camp-section";
-import MatterFest from "../components/sections/events/matter-fest-section";
-import MatterFoundation from "../components/sections/events/matter-foundation-section";
-import MatterNightSection from "../components/sections/events/matter-night";
-import ConnectSection from "../components/sections/events/sec-intro";
 
 
 export default function EventsPage() {
@@ -18,14 +12,13 @@ export default function EventsPage() {
 
   return (
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
-      <IntroEventsSection />
-      {/* <MatterSection /> */}
-      <ConnectSection />
+      {/* <IntroEventsSection />
       <MatterFoundation />
       <MatterFest />
       <MatterCampSection />
       <MatterNightSection />
-      <Footer />
+      <InitiativesFooter /> */}
+      <UnderConstructionPage />
     </MainLayout>
   );
 }

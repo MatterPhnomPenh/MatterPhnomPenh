@@ -1,137 +1,128 @@
+
+
 "use client";
 
 import { motion } from "framer-motion";
 
-interface CustomHidden {
-  initial: { rotate?: number; x?: number; y?: number };
-}
-
-interface CustomVisible {
-  target: { rotate?: number; x?: number; y?: number };
-  duration: number;
-  delay?: number;
-}
-
 export default function IntroHomeSection() {
-  const itemVariants = {
-    hidden: (custom: CustomHidden) => ({
-      opacity: 0,
-      rotate: custom.initial?.rotate || 0,
-      x: custom.initial?.x || 0,
-      y: custom.initial?.y || 0,
-    }),
-    visible: (custom: CustomVisible) => ({
-      opacity: 1,
-      rotate: custom.target?.rotate || 0,
-      x: custom.target?.x || 0,
-      y: custom.target?.y || 0,
-      transition: {
-        duration: custom.duration || 0.8,
-        delay: custom.delay || 0,
-      },
-    }),
-  };
-
   return (
-    <section
-      className="relative w-full bg-gradient-to-br from-amber-50 to-yellow-50 py-24 sm:py-32 md:py-48 px-4 sm:px-6 md:px-10 overflow-hidden
-                  bg-[url('/images/shape1.svg')] bg-no-repeat bg-right-bottom bg-[length:120px]"
-    >
-      <div className="relative z-10 mx-auto max-w-7xl flex flex-col items-center justify-center min-h-[600px]">
-        <div className="flex flex-col items-center justify-center gap-8 w-full max-w-6xl mx-auto">
-          
-          {/* Content Column - Centered */}
-          <div className="flex flex-col items-center text-center">
+    <div className="relative overflow-hidden">
+      {/* HERO SECTION: Full-screen hero with background image */}
+      <section 
+        className="relative w-full bg-cover bg-center bg-no-repeat min-h-screen flex flex-col"
+        style={{ backgroundImage: "url('/images/ORS_Hoklin.jpg')" }}
+      >
+       
+        {/* HERO CONTENT */}
+        <div className="relative z-10 flex-1 flex items-center justify-center px-4 sm:px-6 md:px-8">
+          <div className="w-full h-full max-w-7xl mx-auto">
             
-            {/* H1 */}
-            <div className="mb-8">
-              <motion.h1 
-                className="text-4xl sm:text-6xl md:text-8xl font-bold text-gray-100 leading-tight"
+            {/* Bottom Left Side Title - positioned lower at bottom left */}
+            <motion.div
+              className="absolute bottom-8 left-8 md:left-16 lg:left-24"
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              {/* Grouped text container */}
+              <motion.div
+                className="space-y-0"
                 initial="hidden"
                 animate="visible"
                 variants={{
                   hidden: { opacity: 0 },
-                  visible: { 
+                  visible: {
                     opacity: 1,
-                    transition: { staggerChildren: 0.2 }
-                  }
+                    transition: { staggerChildren: 0.1 },
+                  },
                 }}
               >
-                <motion.span
-                  className="text-white inline"
-                  variants={itemVariants}
-                  custom={{ 
-                    initial: { rotate: 0, x: -100, y: 20 }, 
-                    target: { rotate: 0, x: -100, y: 20 }, 
-                    duration: 0.8, delay: 0 
+                <motion.h1
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-green-400 tracking-tight leading-tight"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+                    },
                   }}
                 >
-                  YOU
-                </motion.span>
-                <motion.span
-                  className="text-white inline"
-                  variants={itemVariants}
-                  custom={{ 
-                    initial: { rotate: 0, x: -80, y: 10 }, 
-                    target: { rotate: 0, x: -80, y: 0 }, 
-                    duration: 0.8, delay: 0.2 
+                  It wouldn&apos;t
+                </motion.h1>
+                <motion.h1
+                  className="text-m sm:text-3xl md:text-4xl lg:text-7xl font-bold text-green-400 tracking-tight leading-tight"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.6, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }
+                    },
                   }}
                 >
-                  MATTER
-                </motion.span>
-                <motion.span
-                  className="text-white inline"
-                  variants={itemVariants}
-                  custom={{ 
-                    initial: { rotate: 0, x: 0, y: 5 }, 
-                    target: { rotate: 0, x: 0, y: 0 }, 
-                    duration: 0.8, delay: 0.4 
+                  be the same
+                </motion.h1>
+                <motion.h1
+                  className="text-m sm:text-3xl md:text-4xl lg:text-7xl font-bold text-green-400 tracking-tight leading-tight"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }
+                    },
                   }}
                 >
-                  HERE
-                </motion.span>
-              </motion.h1>
-            </div>
+                  without you.
+                </motion.h1>
+              </motion.div>
+            </motion.div>
 
-            {/* Description */}
-            <div className="flex flex-col items-center text-center">
-              <p className="text-sm sm:text-base md:text-lg text-[#AE957E] mb-4">
-                Search + Talent Consultancy
-              </p>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-xs">
-                Connecting groundbreaking companies with extraordinary talent
-              </p>
-
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                
-                {/* Yellow Button */}
-                <a
-                  href="#learn-more"
-                  className="relative px-6 py-3 bg-white text-black font-semibold rounded-full text-center overflow-hidden group"
-                >
-                  <span className="relative z-10">Learn more</span>
-                  {/* Hover overlay */}
-                  <span className="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-100 transition-all duration-500 transform origin-bottom scale-y-0 group-hover:scale-y-100"></span>
-                </a>
-
-                {/* Outline Button */}
-                <a
-                  href="#get-in-touch"
-                  className="relative px-6 py-3 border-2 border-gray-700 text-gray-300 font-semibold rounded-full text-center overflow-hidden group"
-                >
-                  <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
-                    Get in touch
-                  </span>
-                  {/* Hover overlay */}
-                  <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform origin-bottom scale-y-0 group-hover:scale-y-100"></span>
-                </a>
-
+            {/* Bottom Right Side Text in Box - positioned at bottom right */}
+            <motion.div
+              className="absolute bottom-16 right-8 md:right-16 lg:right-24"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <div className="bg-transparent border-2 border-black rounded-lg md:pr-16 md:pt-2 md:pb-48 md:pl-2 h-32 flex flex-col justify-start"> {/* Added height and flex column */}
+                <div className="text-left"> {/* Changed to text-left */}
+                  <motion.p
+                    className="text-2xl text-black font-bold tracking-widest uppercase"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.8 }}
+                  >
+                    You
+                  </motion.p>
+                  <motion.p
+                    className="text-2xl text-black font-bold tracking-widest uppercase"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.9 }}
+                  >
+                    Matter
+                  </motion.p>
+                  <motion.p
+                    className="text-2xl text-black font-bold tracking-widest uppercase"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.0 }}
+                  >
+                    Here
+                  </motion.p>
+                </div>
+                {/* Free space at the bottom is automatically created by the fixed height */}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </div>
-    </section>
+
+        {/* Optional: Add a subtle gradient at the bottom for better text contrast */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-transparent"></div>
+      </section>
+    </div>
   );
 }
+

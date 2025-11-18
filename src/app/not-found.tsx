@@ -13,7 +13,7 @@ export default function NotFound() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        404
+        404 
       </motion.h1>
 
       <motion.h2
@@ -22,7 +22,8 @@ export default function NotFound() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
-        Page Not Found
+        {/* Page Not Found */}
+        Under Construction Page
       </motion.h2>
 
       <motion.p

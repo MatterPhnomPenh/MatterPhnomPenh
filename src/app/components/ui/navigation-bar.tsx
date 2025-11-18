@@ -1,560 +1,257 @@
-// "use client";
-
-// import React, { useState, useEffect, useRef } from "react";
-// import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
-
-// interface NavigationBarProps {
-//   activeSection?: string;
-// }
-
-// export default function NavigationBar({ activeSection = "about" }: NavigationBarProps) {
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-//   const [isEventsOpen, setIsEventsOpen] = useState(false);
-//   const [hoveredId, setHoveredId] = useState<string | null>(null);
-//   const [currentPath, setCurrentPath] = useState("");
-//   const [isVisible, setIsVisible] = useState(true);
-//   const lastScrollY = useRef(0);
-
-//   useEffect(() => {
-//     if (typeof window !== "undefined") {
-//       setCurrentPath(window.location.pathname);
-//     }
-//   }, []);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       const currentScrollY = window.scrollY;
-//       if (currentScrollY > 50 && currentScrollY > lastScrollY.current) {
-//         setIsVisible(false);
-//       } else {
-//         setIsVisible(true);
-//       }
-//       lastScrollY.current = currentScrollY;
-//     };
-
-//     window.addEventListener("scroll", handleScroll, { passive: true });
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-
-//   const navLinks = [
-//     { id: "about", label: "About Us", href: "/about" },
-//     { id: "gathering", label: "Gathering", href: "/gathering" },
-//     { id: "talk", label: "Talk", href: "/talk" },
-//     { id: "events", label: "Initiatives", href: "/events" },
-//     { id: "contact", label: "Contact", href: "/contact" },
-//   ];
-
-//   const eventSubLinks = [
-//     { id: "foundation", label: "Matter Foundation", href: "/events#foundation" },
-//     { id: "fest", label: "Matter Fest", href: "/events#fest" },
-//     { id: "camp", label: "Matter Camp", href: "/events#camp" },
-//     { id: "matternight", label: "Matter Night", href: "/events#matternight" },
-//   ];
-
-//   const isLinkActive = (linkId: string) => {
-//     if (activeSection === linkId) return true;
-//     if (currentPath === `/${linkId}`) return true;
-//     if (linkId === "events" && currentPath.startsWith("/events")) return true;
-//     return false;
-//   };
-
-//   const isTalkActive = activeSection === "talk" || currentPath === "/talk";
-//   const navbarBgClass = isTalkActive ? "bg-[#49C809]" : "bg-black";
-//   const logoBgClass = isTalkActive ? "bg-[#49C809]" : "bg-black";
-
-//   return (
-//     <header 
-//       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-//         isVisible ? 'translate-y-0' : '-translate-y-full'
-//       } ${navbarBgClass} shadow-lg backdrop-blur-sm`}
-//     >
-//       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
-//         <div className="flex items-center justify-between py-4 lg:py-5">
-          
-//           {/* Logo with decorative elements */}
-//           <div className="flex-shrink-0">
-//             <a href="/" className="group flex items-center space-x-3">
-//               <div className="flex flex-col">
-//                 <div className="text-2xl lg:text-3xl font-serif font-bold text-white tracking-tight">
-//                   Matter
-//                 </div>
-//               </div>
-//             </a>
-//           </div>
-
-//           {/* Desktop Navigation */}
-//           <div className="hidden lg:flex items-center space-x-1">
-//             {navLinks.map((link) => {
-//               const isActive = isLinkActive(link.id);
-
-//               return link.id === "events" ? (
-//                 <div
-//                   key={link.id}
-//                   className="relative group"
-//                   onMouseEnter={() => setHoveredId(link.id)}
-//                   onMouseLeave={() => setHoveredId(null)}
-//                 >
-//                   <a
-//                     href={link.href}
-//                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center space-x-1
-//                       ${isActive 
-//                       ? 'text-white bg-white/20' 
-//                       : 'text-white/70 hover:text-white hover:bg-white/10'
-//                     }`}
-//                   >
-//                     <span>{link.label}</span>
-//                     <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 duration-300" />
-//                   </a>
-                  
-//                   {/* Dropdown Menu */}
-//                   <div className="absolute top-full left-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
-//                     <div className={`${navbarBgClass} rounded-xl shadow-2xl border border-white/10 overflow-hidden`}>
-//                       <div className="p-2">
-//                         {eventSubLinks.map((subLink, index) => (
-//                           <a
-//                             key={subLink.id}
-//                             href={subLink.href}
-//                             className="block px-4 py-3 rounded-lg text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium"
-//                             style={{ 
-//                               animationDelay: `${index * 50}ms`,
-//                               animation: hoveredId === "events" ? 'slideIn 0.3s ease-out forwards' : 'none'
-//                             }}
-//                           >
-//                             {subLink.label}
-//                           </a>
-//                         ))}
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </div>
-//               ) : (
-//                 <a
-//                   key={link.id}
-//                   href={link.href}
-//                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
-//                   ${isActive 
-//                       ? 'text-white bg-white/20' 
-//                       : 'text-white/70 hover:text-white hover:bg-white/10'
-//                     }`}
-//                 >
-//                   {link.label}
-//                 </a>
-//               );
-//             })}
-//           </div>
-
-//           {/* CTA Buttons - Desktop */}
-//           <div className="hidden lg:flex items-center space-x-4">
-//             <a
-//               href="/contact"
-//               className="px-6 py-2.5 bg-white/20 text-white rounded-full font-medium text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 hover:bg-white/50"           
-//             >
-//               Join Us
-//             </a>
-//             <a
-//               href="/give"
-//               className="px-6 py-2.5 bg-white/20 text-white rounded-full font-medium text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 hover:bg-white/50"           
-//             >
-//               Give Us
-//             </a>
-//           </div>
-
-//           {/* Mobile Menu Toggle */}
-//           <div className="lg:hidden">
-//             <button
-//               onClick={() => {
-//                 setIsMenuOpen(!isMenuOpen);
-//                 if (!isMenuOpen) setIsEventsOpen(false);
-//               }}
-//               className="p-2 text-white hover:text-white transition-colors rounded-lg hover:bg-white/10"
-//               aria-label="Toggle menu"
-//             >
-//               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-//             </button>
-//           </div>
-//         </div>
-
-//         {/* Mobile Menu */}
-//         {isMenuOpen && (
-//           <div className="lg:hidden pb-6 animate-fadeIn">
-//             <div className={`${navbarBgClass} rounded-2xl shadow-xl border border-white/10 overflow-hidden`}>
-//               <div className="p-4 space-y-1">
-//                 {navLinks.map((link) => {
-//                   const isActive = isLinkActive(link.id);
-//                   return (
-//                     <div key={link.id}>
-//                       {link.id === "events" ? (
-//                         <>
-//                           <button
-//                             onClick={() => setIsEventsOpen(!isEventsOpen)}
-//                             className={`flex items-center justify-between w-full px-4 py-3 font-medium rounded-lg transition-all ${isActive ? 'text-white bg-white/20' : 'text-white/70 hover:bg-white/10 hover:text-white'}`}
-//                           >
-//                             <span>{link.label}</span>
-//                             {isEventsOpen ? 
-//                               <ChevronUp className="h-5 w-5" /> : 
-//                               <ChevronDown className="h-5 w-5" />
-//                             }
-//                           </button>
-//                           {isEventsOpen && (
-//                             <div className="ml-4 mt-1 space-y-1 animate-fadeIn">
-//                               {eventSubLinks.map((subLink) => (
-//                                 <a
-//                                   key={subLink.id}
-//                                   href={subLink.href}
-//                                   className="block px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/10 rounded-lg transition-all"
-//                                   onClick={() => {
-//                                     setIsMenuOpen(false);
-//                                     setIsEventsOpen(false);
-//                                   }}
-//                                 >
-//                                   {subLink.label}
-//                                 </a>
-//                               ))}
-//                             </div>
-//                           )}
-//                         </>
-//                       ) : (
-//                         <a
-//                           href={link.href}
-//                           className={`block px-4 py-3 font-medium rounded-lg transition-all ${isActive ? 'text-white bg-white/20' : 'text-white/70 hover:bg-white/10 hover:text-white'}`}
-//                           onClick={() => setIsMenuOpen(false)}
-//                         >
-//                           {link.label}
-//                         </a>
-//                       )}
-//                     </div>
-//                   );
-//                 })}
-                
-//                 {/* Mobile CTAs */}
-//                 <div className="mt-4 space-y-2">
-//                   <a
-//                     href="/contact"
-//                     className="block px-4 py-3 bg-white/20 text-white text-center rounded-lg font-medium shadow-lg"
-//                     onClick={() => setIsMenuOpen(false)}
-//                   >
-//                     Join Us
-//                   </a>
-//                   <a
-//                     href="/give"
-//                     className="block px-4 py-3 bg-white/20 text-white text-center rounded-lg font-medium shadow-lg"
-//                     onClick={() => setIsMenuOpen(false)}
-//                   >
-//                     Give Us
-//                   </a>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         )}
-//       </nav>
-
-//       <style jsx>{`
-//         @keyframes slideIn {
-//           from {
-//             opacity: 0;
-//             transform: translateY(-10px);
-//           }
-//           to {
-//             opacity: 1;
-//             transform: translateY(0);
-//           }
-//         }
-        
-//         @keyframes fadeIn {
-//           from {
-//             opacity: 0;
-//           }
-//           to {
-//             opacity: 1;
-//           }
-//         }
-        
-//         .animate-fadeIn {
-//           animation: fadeIn 0.3s ease-out;
-//         }
-//       `}</style>
-//     </header>
-//   );
-// }
-
-
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
-interface NavigationBarProps {
-  activeSection?: string;
-}
+const eventSubLinks = [
+  { id: "foundation", label: "Matter Foundation", href: "/events#foundation" },
+  { id: "fest", label: "Matter Fest", href: "/events#fest" },
+  { id: "camp", label: "Matter Camp", href: "/events#camp" },
+  { id: "matternight", label: "Matter Night", href: "/events#matternight" },
+];
 
-export default function NavigationBar({ activeSection = "about" }: NavigationBarProps) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isEventsOpen, setIsEventsOpen] = useState(false);
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [currentPath, setCurrentPath] = useState("");
-  const [isVisible, setIsVisible] = useState(true);
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setCurrentPath(window.location.pathname);
-    }
-  }, []);
+export default function NavigationBar() {
+  const [scrollY, setScrollY] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > 50 && currentScrollY > lastScrollY.current) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      lastScrollY.current = currentScrollY;
-    };
-
+    const handleScroll = () => setScrollY(window.scrollY);
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { id: "about", label: "About Us", href: "/about" },
-    { id: "gathering", label: "Gathering", href: "/gathering" },
-    { id: "talk", label: "Talk", href: "/talk" },
-    { id: "events", label: "Initiatives", href: "/events" },
-    { id: "contact", label: "Contact", href: "/contact" },
-  ];
+  const marqueeGoneAfter = 80;
+  const compactModeAfter = 120;
+  const showMarquee = scrollY < marqueeGoneAfter;
+  const isCompact = scrollY >= compactModeAfter;
 
-  const eventSubLinks = [
-    { id: "foundation", label: "Matter Foundation", href: "/events#foundation" },
-    { id: "fest", label: "Matter Fest", href: "/events#fest" },
-    { id: "camp", label: "Matter Camp", href: "/events#camp" },
-    { id: "matternight", label: "Matter Night", href: "/events#matternight" },
+  const marqueeTexts = [
+    "CHRIST IS THE REASON. WE CHOOSE EVERYONE. RELATE & BE RELEVANT. CREATED TO CREATE. GENEROUS BY CHOICE. BE TRANSFORMED, NOT JUST INSPIRED. CONNECTED & RELATIONAL",
   ];
+  const doubled = [...marqueeTexts, ...marqueeTexts];
 
-  const isLinkActive = (linkId: string) => {
-    if (activeSection === linkId) return true;
-    if (currentPath === `/${linkId}`) return true;
-    if (linkId === "events" && currentPath.startsWith("/events")) return true;
-    return false;
+  const handleMouseEnter = () => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setDropdownOpen(true);
+  };
+  const handleMouseLeave = () => {
+    dropdownTimeout.current = setTimeout(() => setDropdownOpen(false), 180);
   };
 
-  const isTalkActive = activeSection === "talk" || currentPath === "/talk";
-  const navbarBgClass = isTalkActive ? "bg-[#49C809]" : "bg-black";
-
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${navbarBgClass} shadow-lg backdrop-blur-sm`}
-    >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between py-4 lg:py-5">
-          
-          {/* Logo with decorative elements */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="group flex items-center space-x-3">
-              <div className="flex flex-col">
-                <div className="text-2xl lg:text-3xl font-serif font-bold text-white tracking-tight">
-                  Matter
-                </div>
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+        {/* Marquee */}
+        <div className={`overflow-hidden transition-all duration-500 ${showMarquee ? "py-5" : "py-0 h-0"}`}>
+          <div className="flex animate-marquee">
+            {doubled.map((text, i) => (
+              <div key={i} className="flex-shrink-0 px-8 text-xl lg:text-2xl font-bold text-white tracking-wider">
+                {text}
               </div>
-            </Link>
+            ))}
           </div>
+        </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
-            {navLinks.map((link) => {
-              const isActive = isLinkActive(link.id);
+        {/* Border */}
+        <div className={`max-w-7xl mx-auto px-6 lg:px-8 transition-all duration-500 ${isCompact ? "opacity-0" : "opacity-100"}`}>
+          <div className={`border-b border-gray-200 transition-all duration-500 ${isCompact ? "w-0" : "w-full"}`} />
+        </div>
 
-              return link.id === "events" ? (
-                <div
-                  key={link.id}
-                  className="relative group"
-                  onMouseEnter={() => setHoveredId(link.id)}
-                  onMouseLeave={() => setHoveredId(null)}
-                >
-                  <a
-                    href={link.href}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center space-x-1
-                      ${isActive 
-                      ? 'text-white bg-white/20' 
-                      : 'text-white/70 hover:text-white hover:bg-white/10'
-                    }`}
-                  >
-                    <span>{link.label}</span>
-                    <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 duration-300" />
-                  </a>
-                  
-                  {/* Dropdown Menu */}
-                  <div className="absolute top-full left-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
-                    <div className={`${navbarBgClass} rounded-xl shadow-2xl border border-white/10 overflow-hidden`}>
-                      <div className="p-2">
-                        {eventSubLinks.map((subLink, index) => (
-                          <a
-                            key={subLink.id}
-                            href={subLink.href}
-                            className="block px-4 py-3 rounded-lg text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium"
-                            style={{ 
-                              animationDelay: `${index * 50}ms`,
-                              animation: hoveredId === "events" ? 'slideIn 0.3s ease-out forwards' : 'none'
+        {/* Logo + Nav */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className={`flex items-center justify-between transition-all duration-500 ${isCompact ? "py-6" : "py-4 lg:py-2"}`}>
+            
+            {/* PERFECT LOGO — NO JUMP, NO SHIFT, 100% SAME POSITION */}
+            <Link href="/" className="flex-shrink-0">
+              <div className="relative h-20 w-80 flex items-center">
+                {/* Invisible placeholder — reserves exact space forever */}
+                <div className="invisible flex items-baseline">
+                  <span className="text-white font-bold tracking-tight text-5xl lg:text-6xl">M</span>
+                  <span className="ml-1 text-white font-bold tracking-tight text-5xl lg:text-6xl">ATTER</span>
+                </div>
+
+                <AnimatePresence mode="wait">
+                  {/* Full MATTER — appears/disappears perfectly */}
+                  {!isCompact && (
+                    <motion.div
+                      key="full-matter"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="absolute inset-0 flex items-baseline"
+                    >
+                      <span className="text-white font-bold tracking-tight text-5xl lg:text-6xl">M</span>
+
+                      {/* ATTER — destroys & rebuilds perfectly */}
+                      <div className="inline-flex ml-1">
+                        {["A", "T", "T", "E", "R"].map((letter, i) => (
+                          <motion.span
+                            key={letter + i}
+                            className="inline-block text-white font-bold tracking-tight text-5xl lg:text-6xl"
+                            initial={{
+                              opacity: 0,
+                              x: (i - 2) * 280,
+                              y: 200,
+                              rotate: i % 2 === 0 ? -480 : 480,
+                              scale: 0
+                            }}
+                            animate={{
+                              opacity: 1,
+                              x: 0,
+                              y: 0,
+                              rotate: 0,
+                              scale: 1
+                            }}
+                            exit={{
+                              opacity: 0,
+                              x: (i - 2) * 380,
+                              y: [0, -160, 450],
+                              rotate: i % 2 === 0 ? -780 : 780,
+                              scale: [1, 2, 0]
+                            }}
+                            transition={{
+                              duration: 0.95,
+                              delay: i * 0.1,
+                              ease: "easeInOut"
                             }}
                           >
-                            {subLink.label}
-                          </a>
+                            {letter}
+                          </motion.span>
                         ))}
                       </div>
-                    </div>
+                    </motion.div>
+                  )}
+
+                  {/* Compact Mode — Only M, slightly smaller */}
+                  {isCompact && (
+                    <motion.div
+                      key="compact-m"
+                      initial={{ scale: 0.7, opacity: 0 }}
+                      animate={{ scale: 0.88, opacity: 1 }}
+                      transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                      className="absolute inset-0 flex items-center"
+                    >
+                      <span className="text-white font-bold tracking-tight text-4xl lg:text-5xl">M</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            {!isCompact && (
+              <>
+                <nav className="hidden lg:flex items-center space-x-12">
+                  {["About", "Talk"].map((item) => (
+                    <Link key={item} href={`/${item.toLowerCase().replace(" ", "-")}`} className="text-sm font-bold tracking-widest uppercase text-white hover:opacity-60 transition">
+                      {item}
+                    </Link>
+                  ))}
+
+                  {/* TINY WHITE DROPDOWN */}
+                  <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <button className="flex items-center space-x-1 text-sm font-bold tracking-widest uppercase text-white hover:opacity-70 transition">
+                      <span>Initiatives</span>
+                      <motion.div animate={{ rotate: dropdownOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                        <ChevronDown className="h-4 w-4" />
+                      </motion.div>
+                    </button>
+
+                    <AnimatePresence>
+                      {dropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.25 }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-36"
+                        >
+                          <div className="bg-white/50 backdrop-blur-md border border-white/30 rounded-md shadow-lg">
+                            <div className="py-1">
+                              {eventSubLinks.map((link) => (
+                                <Link
+                                  key={link.id}
+                                  href={link.href}
+                                  onClick={() => setDropdownOpen(false)}
+                                  className="block px-3 py-1.5 text-xs font-bold tracking-wider text-black hover:bg-white/40 transition"
+                                >
+                                  {link.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                </div>
-              ) : (
-                <a
-                  key={link.id}
-                  href={link.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
-                  ${isActive 
-                      ? 'text-white bg-white/20' 
-                      : 'text-white/70 hover:text-white hover:bg-white/10'
-                    }`}
-                >
-                  {link.label}
-                </a>
-              );
-            })}
-          </div>
 
-          {/* CTA Buttons - Desktop */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <a
-              href="/contact"
-              className="px-6 py-2.5 bg-white/20 text-white rounded-full font-medium text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 hover:bg-white/50"           
-            >
-              Join Us
-            </a>
-            <a
-              href="/give"
-              className="px-6 py-2.5 bg-white/20 text-white rounded-full font-medium text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 hover:bg-white/50"           
-            >
-              Give Us
-            </a>
-          </div>
+                  <Link href="/contact" className="text-sm font-bold tracking-widest uppercase text-white hover:opacity-60 transition">
+                    Contact
+                  </Link>
 
-          {/* Mobile Menu Toggle */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => {
-                setIsMenuOpen(!isMenuOpen);
-                if (!isMenuOpen) setIsEventsOpen(false);
-              }}
-              className="p-2 text-white hover:text-white transition-colors rounded-lg hover:bg-white/10"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+                  <Link
+                    href="/gathering"
+                    className="px-8 py-3.5 border-2 border-white rounded-md text-white text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition"
+                  >
+                    Join Our Gathering
+                  </Link>
+                </nav>
+
+                <button onClick={() => setMobileMenuOpen((prev) => !prev)} className="lg:hidden text-white">
+                  {mobileMenuOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
+                </button>
+              </>
+            )}
           </div>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden pb-6 animate-fadeIn">
-            <div className={`${navbarBgClass} rounded-2xl shadow-xl border border-white/10 overflow-hidden`}>
-              <div className="p-4 space-y-1">
-                {navLinks.map((link) => {
-                  const isActive = isLinkActive(link.id);
-                  return (
-                    <div key={link.id}>
-                      {link.id === "events" ? (
-                        <>
-                          <button
-                            onClick={() => setIsEventsOpen(!isEventsOpen)}
-                            className={`flex items-center justify-between w-full px-4 py-3 font-medium rounded-lg transition-all ${isActive ? 'text-white bg-white/20' : 'text-white/70 hover:bg-white/10 hover:text-white'}`}
-                          >
-                            <span>{link.label}</span>
-                            {isEventsOpen ? 
-                              <ChevronUp className="h-5 w-5" /> : 
-                              <ChevronDown className="h-5 w-5" />
-                            }
-                          </button>
-                          {isEventsOpen && (
-                            <div className="ml-4 mt-1 space-y-1 animate-fadeIn">
-                              {eventSubLinks.map((subLink) => (
-                                <a
-                                  key={subLink.id}
-                                  href={subLink.href}
-                                  className="block px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/10 rounded-lg transition-all"
-                                  onClick={() => {
-                                    setIsMenuOpen(false);
-                                    setIsEventsOpen(false);
-                                  }}
-                                >
-                                  {subLink.label}
-                                </a>
-                              ))}
-                            </div>
-                          )}
-                        </>
-                      ) : (
-                        <a
-                          href={link.href}
-                          className={`block px-4 py-3 font-medium rounded-lg transition-all ${isActive ? 'text-white bg-white/20' : 'text-white/70 hover:bg-white/10 hover:text-white'}`}
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {link.label}
-                        </a>
-                      )}
-                    </div>
-                  );
-                })}
-                
-                {/* Mobile CTAs */}
-                <div className="mt-4 space-y-2">
-                  <a
-                    href="/contact"
-                    className="block px-4 py-3 bg-white/20 text-white text-center rounded-lg font-medium shadow-lg"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Join Us
-                  </a>
-                  <a
-                    href="/give"
-                    className="block px-4 py-3 bg-white/20 text-white text-center rounded-lg font-medium shadow-lg"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Give Us
-                  </a>
+        {!isCompact && mobileMenuOpen && (
+          <div className="border-t border-gray-200 bg-black/90 backdrop-blur-md">
+            <div className="max-w-7xl mx-auto px-6 py-8 space-y-6">
+              {["About", "Talk", "Contact"].map((item) => (
+                <Link key={item} href={`/${item.toLowerCase().replace(" ", "-")}`} onClick={() => setMobileMenuOpen(false)} className="block text-lg font-bold tracking-widest uppercase text-white">
+                  {item}
+                </Link>
+              ))}
+
+              <details className="group">
+                <summary className="flex items-center justify-between cursor-pointer list-none">
+                  <span className="text-lg font-bold tracking-widest uppercase text-white">Initiatives</span>
+                  <ChevronDown className="h-5 w-5 text-white transition-transform group-open:rotate-180" />
+                </summary>
+                <div className="mt-4 ml-4 space-y-3 border-l-2 border-white/30 pl-6">
+                  {eventSubLinks.map((link) => (
+                    <Link key={link.id} href={link.href} onClick={() => setMobileMenuOpen(false)} className="block text-base font-bold tracking-wider text-white/90 hover:text-white transition">
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
-              </div>
+              </details>
+
+              <Link href="/gathering" onClick={() => setMobileMenuOpen(false)} className="block px-8 py-4 border-2 border-white rounded-md text-white text-sm font-bold tracking-widest uppercase text-center hover:bg-white hover:text-black transition">
+                Join Our Gathering
+              </Link>
             </div>
           </div>
         )}
-      </nav>
+      </header>
 
-      <style jsx>{`
-        @keyframes slideIn {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+      <style jsx global>{`
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
         }
-        
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-        
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out;
+        .animate-marquee {
+          display: flex;
+          width: max-content;
+          animation: marquee 38s linear infinite;
         }
       `}</style>
-    </header>
+    </>
   );
 }
