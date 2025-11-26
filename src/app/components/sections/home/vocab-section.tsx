@@ -3,10 +3,22 @@ import { motion } from "framer-motion";
 
 export default function VocabSection() {
   return (
-    <section id="vocab" className="py-32 md:py-48 bg-black text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="vocab"
+      className="py-32 md:py-48 text-white overflow-hidden relative"
+      style={{
+        backgroundImage: `url('/images/Independence_Monument.jpg')`,  
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed", // optional: parallax effect
+      }}
+    >
+      {/* Dark overlay so text stays readable */}
+      <div className="absolute inset-0 bg-black/60" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="lg:pl-48 flex flex-col items-start">
-          {/* Title Block — perfectly centered */}
+          {/* Title Block */}
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +37,7 @@ export default function VocabSection() {
             </p>
           </motion.div>
 
-          {/* Message — perfectly centered */}
+          {/* Message */}
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +46,7 @@ export default function VocabSection() {
             className="max-w-xl text-left"
           >
             <p className="text-lg md:text-xl md:pl-24 font-light leading-relaxed tracking-wide text-white/90">
-                MATTER Phnom Penh: We were empty matters without Him, yet we mattered to Him! Our city, specifically Phnom Penh; needs to hear the word the way we talk about it (relatable & relevant). That’s why we included Phnom Penh in our name.   
+              MATTER Phnom Penh: We were empty matters without Him, yet we mattered to Him! Our city, specifically Phnom Penh; needs to hear the word the way we talk about it (relatable & relevant). That’s why we included Phnom Penh in our name.
             </p>
           </motion.div>
         </div>
@@ -42,3 +54,5 @@ export default function VocabSection() {
     </section>
   );
 }
+
+

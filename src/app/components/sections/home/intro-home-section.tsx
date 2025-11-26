@@ -61,7 +61,7 @@ export default function IntroHomeSection() {
                     },
                   }}
                 >
-                  be the same
+                  Be the same
                 </motion.h1>
                 <motion.h1
                   className="text-m sm:text-3xl md:text-4xl lg:text-7xl font-bold text-green-400 tracking-tight leading-tight"
@@ -74,7 +74,7 @@ export default function IntroHomeSection() {
                     },
                   }}
                 >
-                  without you.
+                  Without you.
                 </motion.h1>
               </motion.div>
             </motion.div>
@@ -125,4 +125,5 @@ export default function IntroHomeSection() {
     </div>
   );
 }
+
 
