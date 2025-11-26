@@ -173,7 +173,7 @@ export default function Page() {
       {!showIntro && (
         <motion.div style={{ background: navBackground }}>
           <MainLayout
-            isNavReady={isNavReady}                    // ← Now provided!
+            isNavReady={isNavReady}                   
             navBackground={navBackground}
             activeSection=""
             scrollToSection={scrollToSection}
