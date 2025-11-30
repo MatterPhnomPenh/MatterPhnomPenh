@@ -146,6 +146,7 @@ import InitiativesSection from "./components/sections/home/initiatives-section";
 import VideoIntro from "./components/sections/home/VideoIntro-motion";
 import Footer from "./components/ui/footer";
 
+
 export default function Page() {
   const {scrollToSection } = useNavigation();
   const { scrollY } = useScroll();
