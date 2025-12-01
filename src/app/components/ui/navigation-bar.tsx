@@ -512,9 +512,7 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                     className="px-2 sm:px-2 lg:px-8 inline-block text-xs font-light tracking-wider text-white hover:opacity-70 transition sm:text-base md:text-lg lg:text-xl xl:text-2xl"
                   >
                     {item.text}
-                    {idx < VALUES.length - 1 && (
-                      <span className="mx-4 opacity-50">•</span>
-                    )}
+                    {idx < VALUES.length - 1 }
                   </Link>
                 ))}
               </div>
