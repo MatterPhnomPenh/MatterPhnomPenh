@@ -109,7 +109,7 @@ export default function VocabSection() {
               viewport={{ once: true }}
               className="text-left max-w-xl lg:pl-20 pr-24 pl-10"
             >
-              <p className="text-lg md:text-xl lg:text-2xl font-light leading-relaxed tracking-wide text-white/90">
+              <p className="text-justify text-lg md:text-xl lg:text-2xl font-light leading-relaxed tracking-wide text-white/90">
                 MATTER Phnom Penh: We were empty matters without Him, yet we mattered to Him! 
                 Our city, specifically Phnom Penh; needs to hear the word the way we talk about it 
                 (relatable & relevant). That’s why we included Phnom Penh in our name.

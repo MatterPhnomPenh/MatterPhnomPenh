@@ -329,7 +329,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
-            className="text-lg md:text-xl lg:text-2xl font-light leading-relaxed tracking-wide text-white/90"
+            className="text-justify text-lg md:text-xl lg:text-2xl font-light leading-relaxed tracking-wide text-white/90"
           >
             We are a community of faith based in Phnom Penh, Cambodia. We started
             off with our first Gathering in March 2024, and it has now been more
@@ -342,7 +342,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.5, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
-            className="text-lg md:text-xl lg:text-2xl font-light leading-relaxed tracking-wide text-white/90"
+            className="text-justify text-lg md:text-xl lg:text-2xl font-light leading-relaxed tracking-wide text-white/90"
           >
             MATTER Phnom Penh is now officially a part of{" "}
             <span className="font-medium text-white">Collective Global</span>; a
