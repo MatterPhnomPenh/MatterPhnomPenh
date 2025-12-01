@@ -50,7 +50,7 @@ import { useScroll, useTransform } from "framer-motion";
 import { useNavigation } from "../components/hooks/use-navigation";
 
 import MainLayout from "../components/layouts/main-layout";
-import UnderConstructionPage from "../components/sections/under-construction-page";
+import HeroPage from "../components/sections/about/hero-video";
 
 export default function AboutPage() {
   const { activeSection, scrollToSection } = useNavigation();
@@ -77,7 +77,12 @@ export default function AboutPage() {
       activeSection={activeSection}
       scrollToSection={scrollToSection}
     >
-      <UnderConstructionPage />
+      {/* <UnderConstructionPage /> */}
+      <HeroPage
+      videoSrc="/videos/About-MTD1.mp4"
+      description="Join us in faith and community."
+      title="You Matter Here"
+      />
     </MainLayout>
   );
 }
