@@ -1,128 +1,125 @@
+
 "use client";
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 
 interface Slide {
   id: number;
   title: string;
   image: string;
+  subtitle: string;
 }
 
 export default function InitiativesSection() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const slides: Slide[] = [
-    { id: 1, title: "GATHERING", image: "/images/DSC05286.jpg" },
-    { id: 2, title: "CAMP", image: "/images/DSC05193.jpg" },
-    { id: 3, title: "FOUNDATION", image: "/images/foundation.jpg" },
-    { id: 4, title: "NIGHT", image: "/images/DSC04836.jpg" },
+    { id: 1, title: "GATHERING", image: "/images/DSC05286.jpg", subtitle: "Happens every Sunday at 4pm" },
+    { id: 2, title: "CAMP", image: "/images/DSC05193.jpg", subtitle: "Once a year, we intentionally create a space" },
+    { id: 3, title: "FOUNDATION", image: "/images/foundation.jpg", subtitle: "Once a year, we go to the province to serve the people" },
+    { id: 4, title: "NIGHT", image: "/images/DSC04836.jpg", subtitle: "Learn and explore in faith is rooted in the Bible" },
   ];
 
-  // ── Drag to scroll (slightly faster) ─────────────────────
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!scrollContainerRef.current) return;
-    setIsDragging(true);
-    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
-    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  // Drag to scroll — super fast & smooth
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    scrollRef.current.style.cursor = "grabbing";
+    const startX = e.pageX - scrollRef.current.offsetLeft;
+    const scrollLeft = scrollRef.current.scrollLeft;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      e.preventDefault();
+      const x = e.pageX - scrollRef.current!.offsetLeft;
+      const walk = (x - startX) * 3; // ← your favorite speed
+      scrollRef.current!.scrollLeft = scrollLeft - walk;
+    };
+
+    const handleMouseUp = () => {
+      scrollRef.current!.style.cursor = "grab";
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
   };
 
-  const handleMouseUp = () => setIsDragging(false);
-  const handleMouseLeave = () => setIsDragging(false);
+  // Wheel scroll — FAST, no page jump
+  const handleWheel = (e: React.WheelEvent) => {
+    if (!scrollRef.current) return;
+    const isHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isDragging || !scrollContainerRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 3; // ← faster dragging
-    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+    if (isHorizontal) {
+      e.preventDefault();
+      scrollRef.current.scrollLeft += e.deltaX * 3;
+    }
+    // Vertical scroll → let page scroll normally
   };
 
-  // ── TOUCHPAD HORIZONTAL SCROLL: FAST, SMOOTH & MOMENTUM ─────
+  // Start in the middle for infinite effect
   useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    let isScrolling = false;
-    let velocity = 0;
-    let frameId: number;
-
-    const handleWheel = (e: WheelEvent) => {
-      // Only react to horizontal-dominant touchpad gestures
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-        e.preventDefault();
-
-        // Fast & responsive multiplier (feels native)
-        const speed = 3.5;
-        velocity = e.deltaX * speed;
-
-        if (!isScrolling) {
-          isScrolling = true;
-          const animate = () => {
-            if (Math.abs(velocity) > 0.5) {
-              container.scrollLeft += velocity;
-              velocity *= 0.95; // friction → smooth deceleration
-              frameId = requestAnimationFrame(animate);
-            } else {
-              isScrolling = false;
-              cancelAnimationFrame(frameId);
-            }
-          };
-          animate();
-        }
-      }
-      // Vertical scroll → let page handle normally (no preventDefault)
-    };
-
-    container.addEventListener("wheel", handleWheel, { passive: false });
-    return () => {
-      container.removeEventListener("wheel", handleWheel);
-      cancelAnimationFrame(frameId);
-    };
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = scrollRef.current.scrollWidth / 3;
+    }
   }, []);
 
   return (
-    <section className="bg-black py-16 px-6 sm:px-10">
+    <section className="bg-black py-24 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-center items-center mb-12">
-          <h2 className="lg:text-7xl text-5xl font-bold text-white">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight">
             Initiatives
           </h2>
         </div>
 
-        {/* Scrollable container */}
+        {/* Horizontal Scroll Container */}
         <div
-          ref={scrollContainerRef}
-          className="overflow-x-auto hide-scrollbar cursor-grab active:cursor-grabbing select-none"
+          ref={scrollRef}
+          className="overflow-x-auto hide-scrollbar cursor-grab select-none"
+          style={{
+            scrollBehavior: "auto",
+            overscrollBehaviorX: "contain",   // ← PREVENTS PAGE JUMP
+          }}
           onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          style={{ scrollBehavior: "smooth" }} // keeps snap on drag release
+          onWheel={handleWheel}
+
         >
-          {/* Add symmetric padding using ::before and ::after */}
-          <div className="flex gap-8 py-4 px-4"> {/* ← symmetric padding */}
-            {slides.map((slide) => (
+          <div className="flex gap-12 py-8">
+            {slides.map((slide, idx) => (
               <div
-                key={slide.id}
-                className="flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(50vw-4rem)] lg:w-[calc((100%/3.5)-2rem)]"
+                key={`${slide.id}-${idx}`}
+                className="flex-shrink-0 w-[320px] sm:w-[380px] md:w-[460px] lg:w-[540px] group"
               >
-                <div className="relative h-[450px] rounded-lg overflow-hidden shadow-sm bg-gray-100 group">
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    fill
-                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 28vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    priority={slide.id <= 3}
-                    quality={85}
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <h3 className="text-2xl font-bold text-white text-center px-4">
-                      {slide.title}
-                    </h3>
+                <div className="relative overflow-hidden rounded-2xl bg-transparent shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:-translate-y-3">
+                  {/* Image */}
+                  <div className="relative h-64 sm:h-72 md:h-80 lg:h-96 overflow-hidden">
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      sizes="(max-width: 640px) 320px, (max-width: 768px) 380px, (max-width: 1024px) 460px, 540px"
+                      className="object-cover transition-transform duration-700 "
+                      priority={idx < 8}
+                      quality={92}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 sm:p-8 md:p-9 lg:p-10 bg-transparent space-y-5">
+                    <div className="flex items-start justify-between gap-6">
+                      <div>
+                        <h3 className="text-3xl lg:text-4xl font-black text-gray-200 leading-none">
+                          {slide.title}
+                        </h3>
+                        {/* <p className="text-xl lg:text-xl font-bold text-gray-700 mt-3">
+                          {slide.subtitle}
+                        </p> */}
+                      </div>
+                    </div>
+                    <p className="text-base lg:text-lg font-medium text-gray-600 uppercase tracking-wider">
+                      Matter Phnom Penh • You Matter Here
+                    </p>
                   </div>
                 </div>
               </div>
@@ -133,14 +130,11 @@ export default function InitiativesSection() {
 
       {/* Hide scrollbar */}
       <style jsx>{`
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
     </section>
   );
 }
+
+
