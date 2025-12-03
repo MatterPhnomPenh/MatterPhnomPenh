@@ -64,7 +64,7 @@ export default function InitiativesSection() {
   }, []);
 
   return (
-    <section className="bg-black py-24 px-6 overflow-hidden">
+    <section className="bg-black py-24 px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight">

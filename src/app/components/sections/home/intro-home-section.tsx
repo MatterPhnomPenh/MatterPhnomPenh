@@ -1,73 +1,96 @@
 
-
 // "use client";
 // import { motion } from "framer-motion";
+
+// const lines = [
+//   "It wouldn't",
+//   "Be the same",
+//   "Without you.",
+// ];
 
 // export default function IntroHomeSection() {
 //   return (
 //     <div className="relative overflow-hidden">
 //       <section
-//         className="relative w-full bg-cover bg-center bg-no-repeat min-h-screen flex flex-col"
+//         className="relative bg-cover bg-center bg-no-repeat min-h-screen flex flex-col"
 //         style={{ backgroundImage: "url('/images/ORS_Hoklin.jpg')" }}
 //       >
-
-//         {/* Main Content */}
-//         <div className="relative z-10 flex-1 flex items-center justify-center px-8 sm:px-6 lg:px-12">
+//         <div className="relative z-10 flex-1 flex items-center justify-center px-8 lg:px-12">
 //           <div className="w-full h-full">
-//             {/* Bottom Left Title */}
+
+//             {/* Left headline – only O is italic */}
 //             <motion.div
-//               className="absolute bottom-8 left-8 sm:left-6 lg:left-12 sm:bottom-6 lg:bottom-12"
-//               initial={{ opacity: 0, x: -40 }}
-//               animate={{ opacity: 1, x: 0 }}
-//               transition={{ duration: 0.8, delay: 0.3 }}
+//               className="absolute bottom-6 left-6 lg:left-12 lg:bottom-8"
+//               initial={{ opacity: 0, x: -50 }}
+//               whileInView={{ opacity: 1, x: 0 }}
+//               transition={{ duration: 1, delay: 0.3 }}
+//               viewport={{ once: false, amount: 0.5 }}
 //             >
-//               <motion.div
-//                 className="space-y-0"
-//                 initial="hidden"
-//                 animate="visible"
-//                 variants={{
-//                   hidden: { opacity: 0 },
-//                   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-//                 }}
-//               >
-//                 {["It wouldn't", "Be the same", "Without you."].map((line, i) => (
+//               <motion.div className="space-y-[-1rem] lg:space-y-[-1.5rem]">
+//                 {lines.map((line, i) => (
 //                   <motion.h1
 //                     key={i}
-//                     className="text-4xl md:text-6xl lg:text-7xl font-bold text-green-400 tracking-tight leading-tight drop-shadow-2xl"
-//                     variants={{
-//                       hidden: { opacity: 0, y: 20 },
-//                       visible: { opacity: 1, y: 0 },
-//                     }}
+//                     className="text-4xl md:text-6xl lg:text-7xl text-yellow-400 tracking-tighter leading-tight drop-shadow-2xl uppercase"
+//                     style={{ fontFamily: "var(--font-playfair-sc), Georgia, serif", fontWeight: 700 }}
+//                     variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }}
 //                   >
-//                     {line}
+//                     {line.split("").map((char, idx) => (
+//                       <span
+//                         key={idx}
+//                         className={char.toUpperCase() === "O" ? "italic" : ""}   // ← only O becomes italic
+//                       >
+//                         {char === " " ? "\u00A0" : char}
+//                       </span>
+//                     ))}
 //                   </motion.h1>
 //                 ))}
 //               </motion.div>
 //             </motion.div>
 
-//             {/* Bottom Right Box */}
-//             <motion.div
-//               className="absolute bottom-8 right-12 sm:right-6 lg:right-12 sm:bottom-6 lg:bottom-12"
-//               initial={{ opacity: 0, x: 40 }}
-//               animate={{ opacity: 1, x: 0 }}
-//               transition={{ duration: 0.8, delay: 0.6 }}
-//             >
-//               <div className="bg-transparent border-2 border-white rounded-lg md:pr-16 md:pt-2 md:pb-48 md:pl-2 h-32 flex flex-col justify-start">
-//                 <div className="text-left">
-//                   {["You", "Matter", "Here"].map((word, i) => (
-//                     <motion.p
-//                       key={i}
-//                       className="lg:text-2xl text-xl font-bold tracking-widest uppercase text-white"
-//                       initial={{ opacity: 0 }}
-//                       animate={{ opacity: 1 }}
-//                       transition={{ delay: 0.8 + i * 0.1 }}
-//                     >
-//                       {word}
-//                     </motion.p>
-//                   ))}
-//                 </div>
-//               </div>
-//             </motion.div>
+// <motion.div
+//   className="absolute bottom-8 right-12 lg:right-12 item-start lg:bottom-12"
+//   initial={{ opacity: 0, x: 40 }}
+//   whileInView={{ opacity: 1, x: 0 }}
+//   exit={{ opacity: 0, x: 40 }}
+//   transition={{ duration: 0.8, delay: 0.6 }}
+//   viewport={{ once: false, amount: 0.4 }}
+// >
+//   <div className="relative flex items-start gap-4 lg:gap-6">  {/* ← changed to items-start */}
+
+//     {/* Thin vertical line */}
+//     <div className="w-px h-32 lg:h-48 bg-white/80"></div>
+
+//     {/* Text – now "YOU" is at the very top */}
+//     <div className="space-y-[-1rem] lg:space-y-[-0.6rem] flex flex-col justify-start leading-none">  {/* removed negative space-y */}
+//       {["YOU", "MATTER", "HERE"].map((word, i) => (
+//         <motion.p
+//           key={i}
+//           className="lg:text-2xl text-sm font-bold tracking-widest uppercase text-white"
+//           style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
+//           initial={{ opacity: 0, y: 30 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           transition={{ delay: 0.9 + i * 0.15, duration: 0.8 }}
+//           viewport={{ once: false }}
+//         >
+//           {word}
+//         </motion.p>
+//       ))}
+//     </div>
+
+//     {/* Your .mov – perfectly aligned with the top of the text */}
+//     <video
+//       className="absolute -right-4 lg:-right-6 lg:bottom-2 w-72 lg:w-128 xl:w-[28rem] pointer-events-none"
+//       src="/videos/trans.mov"
+//       autoPlay
+//       loop
+//       muted
+//       playsInline
+//     />
+
+
+//   </div>
+// </motion.div>
+
 //           </div>
 //         </div>
 //       </section>
@@ -75,83 +98,104 @@
 //   );
 // }
 
+
 "use client";
 import { motion } from "framer-motion";
+
+const lines = [
+  "It wouldn't",
+  "Be the same",
+  "Without you.",
+];
 
 export default function IntroHomeSection() {
   return (
     <div className="relative overflow-hidden">
       <section
-        className="relative w-full bg-cover bg-center bg-no-repeat min-h-screen flex flex-col"
+        className="relative bg-cover bg-center bg-no-repeat min-h-screen flex flex-col"
         style={{ backgroundImage: "url('/images/ORS_Hoklin.jpg')" }}
       >
-        {/* Main Content */}
         <div className="relative z-10 flex-1 flex items-center justify-center px-8 lg:px-12">
           <div className="w-full h-full">
 
-            {/* Bottom Left Title – Restarts on scroll-in */}
+            {/* Left headline – only O is italic */}
             <motion.div
               className="absolute bottom-6 left-6 lg:left-12 lg:bottom-8"
-              initial={{ opacity: 0, x: -40 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: false, amount: 0.4 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              viewport={{ once: false, amount: 0.5 }}
             >
-              <motion.div
-                className="space-y-0"
-                initial="hidden"
-                whileInView="visible"
-                exit="hidden"
-                viewport={{ once: false }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { 
-                    opacity: 1, 
-                    transition: { staggerChildren: 0.1 } 
-                  },
-                }}
-              >
-                {["It wouldn't", "Be the same", "Without you."].map((line, i) => (
+              <motion.div className="space-y-[-1rem] lg:space-y-[-1.5rem]">
+                {lines.map((line, i) => (
                   <motion.h1
                     key={i}
-                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-green-400 tracking-tight leading-tight drop-shadow-2xl"
-                    variants={{
-                      hidden: { opacity: 0, y: 20 },
-                      visible: { opacity: 1, y: 0 },
-                    }}
+                    className="text-4xl md:text-6xl lg:text-7xl text-yellow-400 tracking-tighter leading-tight drop-shadow-2xl uppercase"
+                    style={{ fontFamily: "var(--font-playfair-sc), Georgia, serif", fontWeight: 700 }}
+                    variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }}
                   >
-                    {line}
+                    {line.split("").map((char, idx) => (
+                      <span
+                        key={idx}
+                        className={char.toUpperCase() === "O" ? "italic" : ""}
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </span>
+                    ))}
                   </motion.h1>
                 ))}
               </motion.div>
             </motion.div>
 
-            {/* Bottom Right Box – Restarts on scroll-in */}
+            {/* Right section with YOU MATTER HERE and larger video */}
             <motion.div
-              className="absolute bottom-8 right-12 sm:right-6 lg:right-12 sm:bottom-6 lg:bottom-12"
+              className="absolute bottom-8 right-4 lg:right-12 lg:bottom-12"
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 40 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: false, amount: 0.4 }}
             >
-              <div className="bg-transparent border-2 border-white rounded-lg md:pr-16 md:pt-2 md:pb-48 pl-2 pt-2 pr-4 md:pl-2 lg:h-32 h-24 flex flex-col justify-start">
-                <div className="text-left">
-                  {["You", "Matter", "Here"].map((word, i) => (
+              <div className="relative flex items-start gap-4 lg:gap-6">
+                
+                {/* Thin vertical line - made longer to match larger video */}
+                <div className="w-px h-22 lg:h-52 bg-white/80 mt-1"></div>
+
+                {/* Text section */}
+                <div className="space-y-[-0.5rem] lg:space-y-[-0.5rem] flex flex-col justify-start leading-none">
+                  {["YOU", "MATTER", "HERE"].map((word, i) => (
                     <motion.p
                       key={i}
                       className="lg:text-2xl text-sm font-bold tracking-widest uppercase text-white"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ delay: 0.8 + i * 0.1 }}
+                      style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.9 + i * 0.15, duration: 0.8 }}
                       viewport={{ once: false }}
                     >
                       {word}
                     </motion.p>
                   ))}
+
+                {/* Larger video container - positioned to align with text */}
+                <div className="relative pt-4 lg:pt-6">
+                  {/* Large video - much bigger */}
+                  <video
+                    className="w-[72px] lg:w-[200px] pointer-events-none"
+                    src="/videos/trans.mov"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{
+                      height: 'auto',
+                      objectFit: 'contain'
+                    }}
+                  />
                 </div>
+                </div>
+
+
               </div>
             </motion.div>
 
