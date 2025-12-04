@@ -51,6 +51,7 @@ import { useNavigation } from "../components/hooks/use-navigation";
 
 import MainLayout from "../components/layouts/main-layout";
 import HeroPage from "../components/sections/about/hero-video";
+import OurTeam from "../components/sections/about/OurTeam";
 
 export default function AboutPage() {
   const { activeSection, scrollToSection } = useNavigation();
@@ -83,6 +84,7 @@ export default function AboutPage() {
       description="Join us in faith and community."
       title="You Matter Here"
       />
+      <OurTeam />
     </MainLayout>
   );
 }

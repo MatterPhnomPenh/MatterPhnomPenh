@@ -101,6 +101,7 @@
 
 "use client";
 import { motion } from "framer-motion";
+import GeometricLoader from "../about/GeometricLoader";
 
 const lines = [
   "It wouldn't",
@@ -192,6 +193,7 @@ export default function IntroHomeSection() {
                       objectFit: 'contain'
                     }}
                   />
+                  {/* <GeometricLoader /> */}
                 </div>
                 </div>
 
