@@ -101,7 +101,6 @@
 
 "use client";
 import { motion } from "framer-motion";
-import GeometricLoader from "../about/GeometricLoader";
 
 const lines = [
   "It wouldn't",
