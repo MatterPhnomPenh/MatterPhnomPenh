@@ -75,7 +75,7 @@ export default function PastorSection() {
                 viewport={{ once: false, amount: 0.3 }}
                 className="text-lg lg:text-xl font-light leading-relaxed tracking-wide text-white/90 text-justify mb-8"
               >
-                They got engaged in 2024 and will be married in 2026.
+                They got engaged in 2024 and are planning to get married.
               </motion.p>
 
               <motion.p

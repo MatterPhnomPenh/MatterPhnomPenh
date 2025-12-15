@@ -50,8 +50,12 @@ import { useScroll, useTransform } from "framer-motion";
 import { useNavigation } from "../components/hooks/use-navigation";
 
 import MainLayout from "../components/layouts/main-layout";
-import HeroPage from "../components/sections/about/hero-video";
-import OurTeam from "../components/sections/about/OurTeam";
+import HeroPage from "../components/sections/about/notused/hero-video";
+import { IntroductionSection } from "../components/sections/about/introduction";
+import OurNameSection from "../components/sections/about/OurName";
+import { SloganSection } from "../components/sections/about/slogan-section";
+import { VisionMissionSection } from "../components/sections/about/vision-mission-section";
+import { CoreValuesSection } from "../components/sections/about/core-values-section";
 
 export default function AboutPage() {
   const { activeSection, scrollToSection } = useNavigation();
@@ -82,9 +86,13 @@ export default function AboutPage() {
       <HeroPage
       videoSrc="/videos/About-MTD1.mp4"
       description="Join us in faith and community."
-      title="You Matter Here"
+      title="MATTER Phnom Penh"
       />
-      <OurTeam />
+      <IntroductionSection />
+      <OurNameSection />
+      <SloganSection />
+      <VisionMissionSection />
+      <CoreValuesSection />
     </MainLayout>
   );
 }
