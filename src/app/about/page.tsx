@@ -56,6 +56,8 @@ import OurNameSection from "../components/sections/about/OurName";
 import { SloganSection } from "../components/sections/about/slogan-section";
 import { VisionMissionSection } from "../components/sections/about/vision-mission-section";
 import { CoreValuesSection } from "../components/sections/about/core-values-section";
+import FoundersSection from "../components/sections/about/our-pastor-section";
+import TheDreamSection from "../components/sections/about/TheDreamSection";
 
 export default function AboutPage() {
   const { activeSection, scrollToSection } = useNavigation();
@@ -93,6 +95,8 @@ export default function AboutPage() {
       <SloganSection />
       <VisionMissionSection />
       <CoreValuesSection />
+      <FoundersSection />
+      <TheDreamSection />
     </MainLayout>
   );
 }

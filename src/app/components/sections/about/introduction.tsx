@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 
 export function IntroductionSection() {
   return (
-    <section className="py-24 md:py-32 bg-secondary overflow-hidden">
+    <section className="py-24 md:py-32 bg-black overflow-hidden">
       <div className="container mx-auto px-8">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>

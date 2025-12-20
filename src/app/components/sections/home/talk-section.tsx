@@ -19,6 +19,7 @@ export default function TalkSection() {
         transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.3 }}   // REPLAYS EVERY TIME
         className="text-center mb-20"
+        style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
       >
         <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-white mb-6">
           Our Latest Talk
@@ -60,6 +61,7 @@ export default function TalkSection() {
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             viewport={{ once: false, amount: 0.4 }}   // REPLAYS EVERY TIME
             className="w-full lg:w-1/2 text-center lg:text-left space-y-8"
+            style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
           >
             <div className="space-y-4">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
@@ -102,6 +104,7 @@ export default function TalkSection() {
               className="relative z-10 flex items-center gap-3 text-white"
               variants={{ rest: { color: "#ffffff" }, hover: { color: "#000000" } }}
               transition={{ duration: 0.2 }}
+              style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
             >
               Listen To Other Talks
               <motion.span

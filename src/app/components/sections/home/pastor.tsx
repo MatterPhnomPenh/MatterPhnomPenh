@@ -26,6 +26,7 @@ export default function PastorSection() {
           transition={{ duration: 0.9, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.2 }}
           className="text-5xl lg:text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-lime-500 text-center mb-16 lg:mb-32"
+          style={{ fontFamily: "var(--font-rubik), Georgia, serif" }}
         >
           Our Pastor
         </motion.h2>
@@ -62,6 +63,7 @@ export default function PastorSection() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 viewport={{ once: false, amount: 0.3 }}
                 className="text-lg lg:text-xl font-light leading-relaxed tracking-wide text-white/90 text-justify mb-8"
+                style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
               >
                 Sam is a creative pioneer; Aliza has the gift of listening and telling stories that matter.
                 Born in Singapore, Sam moved to Phnom Penh in 2019. Here he met Aliza in 2023, and together they began pursuing the dream God placed in their hearts — to build a church for this generation.
@@ -74,9 +76,10 @@ export default function PastorSection() {
                 transition={{ duration: 0.7, delay: 0.4 }}
                 viewport={{ once: false, amount: 0.3 }}
                 className="text-lg lg:text-xl font-light leading-relaxed tracking-wide text-white/90 text-justify mb-8"
+                style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
               >
-                They got engaged in 2024 and are planning to get married.
-              </motion.p>
+                They got engaged in 2024 and are planning to tie the knot soon.   
+           </motion.p>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -85,6 +88,7 @@ export default function PastorSection() {
                 transition={{ duration: 0.7, delay: 0.6 }}
                 viewport={{ once: false, amount: 0.3 }}
                 className="text-lg lg:text-xl font-light leading-relaxed tracking-wide text-white/90 text-justify"
+                style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
               >
                 Pr. Sam Wujiale & Sannyaliza Sreng
               </motion.p>
@@ -102,7 +106,7 @@ export default function PastorSection() {
           className="flex items-center gap-6 justify-center mt-16"
         >
           <motion.a
-            href="https://facebook.com/yourpage"
+            href="https://facebook.com/matterphnompenh"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
@@ -119,7 +123,7 @@ export default function PastorSection() {
           </motion.a>
 
           <motion.a
-            href="https://instagram.com/yourpage"
+            href="https://instagram.com/matterphnompenh"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
@@ -136,7 +140,7 @@ export default function PastorSection() {
           </motion.a>
 
           <motion.a
-            href="https://tiktok.com/@yourpage"
+            href="https://tiktok.com/@matterphnompenh"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
@@ -165,7 +169,7 @@ export default function PastorSection() {
         >
           <motion.div whileHover="hover" initial="rest">
             <Link
-              href="/team"
+              href="/about#founders"
               className="relative inline-flex items-center gap-3 border-2 border-white rounded-md px-8 py-3.5 lg:px-10 lg:py-5 text-sm font-bold tracking-widest uppercase overflow-hidden"
             >
               <motion.div

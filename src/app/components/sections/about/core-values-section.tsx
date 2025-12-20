@@ -1,152 +1,3 @@
-// "use client";
-
-// import { useRef, useEffect } from "react";
-// import { motion } from "framer-motion";
-
-// const coreValues = [
-//   { title: "Christ Is The Reason", description: "Jesus is why we gather. His life and teaching shape how we live, love, and create." },
-//   { title: "We Choose Everyone", description: "We see people before differences. We stand for all — even those who don't think, speak, or act like us." },
-//   { title: "Relate & Be Relevant", description: "Being \"set apart\" doesn't mean being out of touch. We speak in a language people understand." },
-//   { title: "Created To Create", description: "We reflect our Creator through creativity. Every act of creating is our partnership with God." },
-//   { title: "Generous By Choice", description: "We give because we get to, not because we have to. Jesus lived a life that was always about others." },
-//   { title: "Be Transformed, Not Just Inspired", description: "We don't gather just to feel God, but to be changed by Him." },
-//   { title: "Connected & Relational", description: "We don't do religion. We do relationship — with God and with people. We listen, we move, we grow." },
-// ];
-
-// export function CoreValuesSection() {
-//   const scrollRef = useRef<HTMLDivElement>(null);
-
-//   // Drag to scroll — fast & smooth
-//   const handleMouseDown = (e: React.MouseEvent) => {
-//     if (!scrollRef.current) return;
-//     scrollRef.current.style.cursor = "grabbing";
-//     const startX = e.pageX - scrollRef.current.offsetLeft;
-//     const scrollLeft = scrollRef.current.scrollLeft;
-
-//     const handleMouseMove = (e: MouseEvent) => {
-//       e.preventDefault();
-//       const x = e.pageX - scrollRef.current!.offsetLeft;
-//       const walk = (x - startX) * 3;
-//       scrollRef.current!.scrollLeft = scrollLeft - walk;
-//     };
-
-//     const handleMouseUp = () => {
-//       scrollRef.current!.style.cursor = "grab";
-//       document.removeEventListener("mousemove", handleMouseMove);
-//       document.removeEventListener("mouseup", handleMouseUp);
-//     };
-
-//     document.addEventListener("mousemove", handleMouseMove);
-//     document.addEventListener("mouseup", handleMouseUp);
-//   };
-
-//   // Enhanced horizontal wheel scrolling
-//   const handleWheel = (e: React.WheelEvent) => {
-//     if (!scrollRef.current) return;
-//     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-//       e.preventDefault();
-//       scrollRef.current.scrollLeft += e.deltaX * 3;
-//     }
-//   };
-
-//   // Optional: Start slightly scrolled for visual balance
-//   useEffect(() => {
-//     if (scrollRef.current) {
-//       scrollRef.current.scrollLeft = 100;
-//     }
-//   }, []);
-
-//   return (
-//     <section className="bg-background py-24 px-8 overflow-hidden " >
-//       <div className="max-w-7xl mx-auto">
-//         {/* Heading */}
-//         <div className="text-center mb-20">
-//           <motion.span
-//             initial={{ opacity: 0, y: 20 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8 }}
-//             viewport={{ once: true }}
-//             className="text-accent uppercase tracking-[0.3em] text-sm font-bold block"
-//             style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
-
-//           >
-//             Core Values
-//           </motion.span>
-//           <motion.h2
-//             initial={{ opacity: 0, y: 30 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.9, delay: 0.2 }}
-//             viewport={{ once: true }}
-//             className="font-serif text-5xl sm:text-6xl lg:text-7xl text-foreground mt-6 leading-none tracking-tight"
-//             style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
-
-//           >
-//             What We Stand For
-//           </motion.h2>
-//         </div>
-
-//         {/* Horizontal Scroll Container */}
-//         <div
-//           ref={scrollRef}
-//           className="overflow-x-auto hide-scrollbar cursor-grab select-none"
-//           style={{
-//             scrollBehavior: "auto",
-//             overscrollBehaviorX: "contain",
-//           }}
-//           onMouseDown={handleMouseDown}
-//           onWheel={handleWheel}
-//         >
-//           <div className="flex gap-10 md:gap-16 py-12 px-4">
-//             {coreValues.map((value, index) => (
-//               <motion.div
-//                 key={value.title}
-//                 initial={{ opacity: 0, y: 50 }}
-//                 whileInView={{ opacity: 1, y: 0 }}
-//                 transition={{ duration: 0.7, delay: index * 0.1 }}
-//                 viewport={{ once: true, amount: 0.3 }}
-//                 className="flex-shrink-0 w-[380px] sm:w-[440px] md:w-[520px] lg:w-[580px] group"
-//               >
-//                 <div className="relative bg-card/80 backdrop-blur-sm border border-border/50 rounded-3xl p-10 md:p-12 lg:p-14 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:bg-card/95">
-//                   {/* Optional accent line */}
-//                   <div className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-accent to-transparent rounded-full opacity-70" />
-
-//                   <div className="mt-8 space-y-8">
-//                     <h3 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-foreground leading-none tracking-tight"
-//                       style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
-//                     >
-//                       {value.title}
-//                     </h3>
-//                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light"
-//                       style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
-//                     >
-//                       {value.description}
-//                     </p>
-//                   </div>
-
-//                   {/* Subtle bottom glow on hover */}
-//                   <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-//                 </div>
-//               </motion.div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Hide scrollbar */}
-//       <style jsx>{`
-//         .hide-scrollbar::-webkit-scrollbar {
-//           display: none;
-//         }
-//         .hide-scrollbar {
-//           -ms-overflow-style: none;
-//           scrollbar-width: none;
-//         }
-//       `}</style>
-//     </section>
-//   );
-// }
-
-
 "use client";
 
 import { useRef, useEffect } from "react";
@@ -193,6 +44,7 @@ const coreValues = [
 export function CoreValuesSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // Drag to scroll — EXACTLY like reference
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollRef.current) return;
     scrollRef.current.style.cursor = "grabbing";
@@ -202,7 +54,7 @@ export function CoreValuesSection() {
     const handleMouseMove = (e: MouseEvent) => {
       e.preventDefault();
       const x = e.pageX - scrollRef.current!.offsetLeft;
-      const walk = (x - startX) * 3;
+      const walk = (x - startX) * 3; // ← same speed as reference
       scrollRef.current!.scrollLeft = scrollLeft - walk;
     };
 
@@ -216,14 +68,18 @@ export function CoreValuesSection() {
     document.addEventListener("mouseup", handleMouseUp);
   };
 
+  // Wheel scroll — EXACTLY like reference
   const handleWheel = (e: React.WheelEvent) => {
     if (!scrollRef.current) return;
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+    const isHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+    if (isHorizontal) {
       e.preventDefault();
       scrollRef.current.scrollLeft += e.deltaX * 3;
     }
+    // Vertical → normal page scroll
   };
 
+  // Small initial offset (kept your preference, reference uses middle but yours doesn't loop)
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = 100;
@@ -231,16 +87,16 @@ export function CoreValuesSection() {
   }, []);
 
   return (
-    <section className="bg-background py-24 px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        {/* Heading */}
+    <section id="CoreValues" className="bg-black py-24 px-8 overflow-hidden">
+      <div className="max-w-8xl mx-auto">
+        {/* Animated Heading — your original motion kept */}
         <div className="text-center mb-20">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-accent uppercase tracking-[0.3em] text-sm font-bold block"
+            className="text-accent uppercase tracking-[0.3em] text-sm font-serif block"
             style={{ fontFamily: "var(--font-rubik), Georgia, serif" }}
           >
             Core Values
@@ -251,57 +107,54 @@ export function CoreValuesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2 }}
             viewport={{ once: true }}
-            className="font-serif text-5xl sm:text-6xl lg:text-7xl text-foreground mt-6 leading-none tracking-tight"
+            className="font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground mt-6 leading-none tracking-tight"
             style={{ fontFamily: "var(--font-rubik), Georgia, serif" }}
           >
             What We Stand For
           </motion.h2>
         </div>
 
-        {/* Horizontal Scroll Container */}
+        {/* Horizontal Scroll Container — motion & feel matches reference exactly */}
         <div
           ref={scrollRef}
           className="overflow-x-auto hide-scrollbar cursor-grab select-none"
-          style={{ scrollBehavior: "auto", overscrollBehaviorX: "contain" }}
+          style={{
+            scrollBehavior: "auto",
+            overscrollBehaviorX: "contain", // ← prevents page jump
+          }}
           onMouseDown={handleMouseDown}
           onWheel={handleWheel}
         >
-          <div className="flex gap-10 md:gap-16 py-12 px-4">
-            {coreValues.map((value, index) => (
-              <motion.div
+          <div className="flex gap-12 py-8"> {/* gap-12 like reference */}
+            {coreValues.map((value) => (
+              <div
                 key={value.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: index * 0.1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                className="flex-shrink-0 w-[380px] sm:w-[440px] md:w-[520px] lg:w-[580px] group"
+                className="flex-shrink-0 w-[320px] sm:w-[380px] md:w-[460px] lg:w-[540px] group" // sizes adjusted to match reference
               >
                 <div
-                  className="relative h-[620px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 group-hover:-translate-y-6 group-hover:shadow-3xl"
+                  className="relative overflow-hidden rounded-2xl bg-transparent shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:-translate-y-3"
                   style={{
                     backgroundImage: `url(${value.bgImage})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                 >
-                  {/* Dark overlay + subtle blur */}
-                  <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
+                  {/* Height adjusted to match reference feel */}
+                  <div className="relative h-64 sm:h-72 md:h-80 lg:h-96 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  </div>
 
-                  {/* Gradient overlays */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-transparent opacity-80" />
-
-                  {/* Content */}
-                  <div className="relative h-full p-10 md:p-12 lg:p-14 flex flex-col justify-end text-white">
-                    <div className="space-y-8">
+                  {/* Content overlay */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 md:p-9 lg:p-10">
+                    <div className="space-y-5">
                       <h3
-                        className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-none tracking-tight drop-shadow-2xl"
+                        className="text-3xl lg:text-4xl font-black text-gray-200 leading-none"
                         style={{ fontFamily: "var(--font-rubik), Georgia, serif" }}
                       >
                         {value.title}
                       </h3>
                       <p
-                        className="text-lg md:text-xl leading-relaxed font-light opacity-95 drop-shadow-lg"
+                        className="text-base lg:text-lg font-medium text-gray-600 uppercase tracking-wider"
                         style={{ fontFamily: "var(--font-rubik), Georgia, serif" }}
                       >
                         {value.description}
@@ -309,10 +162,10 @@ export function CoreValuesSection() {
                     </div>
                   </div>
 
-                  {/* Hover glow */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-accent/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
+                  {/* Optional subtle top accent line (kept from your design) */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-transparent opacity-80" />
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

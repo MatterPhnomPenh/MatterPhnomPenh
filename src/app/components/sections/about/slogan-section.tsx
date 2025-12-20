@@ -209,7 +209,7 @@ export function SloganSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: false, amount: 0.2 }}
-          className="text-primary-foreground/60 uppercase tracking-[0.25em] text-xs sm:text-sm font-medium block"
+          className="text-primary-foreground/60 uppercase tracking-[0.25em] text-xs sm:text-sm font-serif block"
           style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
         >
           Slogan / Tagline
@@ -221,7 +221,7 @@ export function SloganSection() {
           transition={{ duration: 1.4, delay: 0.4 }}
           viewport={{ once: false, amount: 0.2 }}
           className="font-black text-7xl sm:text-8xl md:text-9xl leading-[0.85] tracking-tighter text-primary-foreground mt-8 drop-shadow-3xl"
-          style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
+          style={{ fontFamily: "var(--font-rubik), Georgia, serif"}}
         >
           You Matter Here.
         </motion.h2>

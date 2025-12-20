@@ -31,6 +31,7 @@ export default function Footer() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             className="space-y-2"
+            style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
           >
             <h2 className="text-2xl text-white font-bold tracking-wide">MATTER</h2>
             <p className="text-sm text-white opacity-80 font-light">YOU MATTER HERE</p>
@@ -82,3 +83,4 @@ export default function Footer() {
     </footer>
   );
 }
+

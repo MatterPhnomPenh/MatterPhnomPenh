@@ -66,7 +66,9 @@ export default function InitiativesSection() {
   return (
     <section className="bg-black py-24 px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16"
+        style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
+        >
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight">
             Initiatives
           </h2>
@@ -109,7 +111,9 @@ export default function InitiativesSection() {
                   <div className="p-6 sm:p-8 md:p-9 lg:p-10 bg-transparent space-y-5">
                     <div className="flex items-start justify-between gap-6">
                       <div>
-                        <h3 className="text-3xl lg:text-4xl font-black text-gray-200 leading-none">
+                        <h3 className="text-3xl lg:text-4xl font-black text-gray-200 leading-none"
+                            style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
+                        >
                           {slide.title}
                         </h3>
                         {/* <p className="text-xl lg:text-xl font-bold text-gray-700 mt-3">
@@ -117,7 +121,9 @@ export default function InitiativesSection() {
                         </p> */}
                       </div>
                     </div>
-                    <p className="text-base lg:text-lg font-medium text-gray-600 uppercase tracking-wider">
+                    <p className="text-base lg:text-lg font-medium text-gray-600 uppercase tracking-wider"
+                        style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
+                    >
                       Matter Phnom Penh • You Matter Here
                     </p>
                   </div>

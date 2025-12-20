@@ -56,6 +56,8 @@ export default function ImageIntro({ onEnd }: { onEnd: () => void }) {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 1.3, opacity: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
+        style={{ fontFamily: "var(--font-rubik), Georgia, serif" }}
+
       >
         M
       </motion.div>

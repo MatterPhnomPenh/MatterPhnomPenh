@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export function VisionMissionSection() {
   return (
-    <section className="py-24 md:py-32 lg:py-40">
+    <section className="py-24 bg-black md:py-32 lg:py-40">
       <div className="container mx-auto px-8">
         <div className="mx-auto text-center">
           <motion.span
@@ -22,8 +22,8 @@ export function VisionMissionSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: false, amount: 0.3 }}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground mt-8 leading-tight"
-            style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
+            className="font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground mt-8 leading-tight"
+            style={{ fontFamily: "var(--font-rubik), Georgia, serif" }}
           >
             We&apos;re here to restore what church was always meant to be —
           </motion.h2>
@@ -40,7 +40,7 @@ export function VisionMissionSection() {
           </motion.p>
         </div>
 
-        <div className="mx-auto mt-20 lg:mt-28 pl-24">
+        <div className="mx-auto mt-20 lg:mt-28 lg:pl-24 pl-4">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -49,9 +49,13 @@ export function VisionMissionSection() {
             className="border-l-4 border-primary pl-8 lg:pl-12 py-6"
             style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
           >
-            <p className="text-foreground text-xl md:text-2xl lg:text-3xl leading-relaxed">
+            <p className="text-foreground text-xl md:text-2xl lg:text-3xl leading-relaxed"
+               style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
+            >
               We want to become the kind of church Jesus envisioned for this city —
-              <span className="font-serif italic text-primary ml-2">
+              <span className="text-primary ml-2"
+                    style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
+              >
                 real, raw, and relevant.
               </span>
             </p>
