@@ -3,7 +3,8 @@ import { useScroll, useTransform } from "framer-motion";
 import { useNavigation } from "../components/hooks/use-navigation";
 import MainLayout from "../components/layouts/main-layout";
 import { useEffect, useState } from "react";
-import UnderConstructionPage from "../components/sections/under-construction-page";
+import IntroContactSection from "../components/sections/contact/intro-contact-section";
+import GatheringModal from "../components/sections/GatheringModal";
 
 
 
@@ -13,6 +14,9 @@ export default function ContactPage() {
   const { scrollY } = useScroll();
   const navBackground = useTransform(scrollY, [0, 100], ["rgb(255, 255, 255)", "rgba(255, 251, 251, 0.9)"]);
   const [isNavReady, setIsNavReady] = useState(false);
+   const [isGatheringModalOpen, setIsGatheringModalOpen] = useState(false);
+  const openGatheringModal = () => setIsGatheringModalOpen(true);
+  const closeGatheringModal = () => setIsGatheringModalOpen(false);
 
   // Trigger nav animation after a tiny delay when page mounts
   useEffect(() => {
@@ -28,15 +32,19 @@ export default function ContactPage() {
     };
   }, []);
   return (
-    <MainLayout
+    <><MainLayout
       isNavReady={isNavReady}                    // REQUIRED prop
       navBackground={navBackground}              // MotionValue<string> → accepted directly
       activeSection={activeSection}
       scrollToSection={scrollToSection}
+      onOpenGatheringModal={openGatheringModal}
     >      {/* <IntroContactSection />
       <ContactSection />
       <Footer /> */}
-      <UnderConstructionPage />
-    </MainLayout>
+      <IntroContactSection />
+
+    </MainLayout><GatheringModal
+            isOpen={isGatheringModalOpen}
+            onClose={closeGatheringModal} /></>
   );
 }

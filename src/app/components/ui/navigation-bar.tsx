@@ -1,4 +1,5 @@
 
+
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -7,10 +8,11 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const EVENT_SUB_LINKS = [
-  { id: "foundation", label: "Foundation", href: "/events#foundation" },
-  { id: "fest", label: "Fest", href: "/events#fest" },
-  { id: "camp", label: "Camp", href: "/events#camp" },
-  { id: "night", label: "Night", href: "/events#matternight" },
+  { id: "foundation", label: "Foundation", href: "/initiatives#foundation" },
+  { id: "camp", label: "Camp", href: "/initiatives#camp" },
+  { id: "canvas", label: "Canvas", href: "/initiatives#canvas" },
+  { id: "hangs", label: "Hangs", href: "/initiatives#hangs" },
+  { id: "bible-study", label: "Bible Study", href: "/initiatives#bible-study" },
 ] as const;
 
 const VALUES = [
@@ -25,9 +27,14 @@ const VALUES = [
 
 const NAV_ITEMS = ["About", "Talk"] as const;
 const CTA_LABEL = "Join Our Gathering";
-const CTA_HREF = "/gathering";
 
-export default function NavigationBar({ isNavReady = false }: { isNavReady?: boolean }) {
+export default function NavigationBar({
+  isNavReady = false,
+  onOpenGatheringModal,
+}: {
+  isNavReady?: boolean;
+  onOpenGatheringModal?: () => void;
+}) {
   const pathname = usePathname();
   const [scrollY, setScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -57,8 +64,8 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
   // ————————————————————————
   const isHomePage = pathname === "/";
   const currentHash = typeof window !== "undefined" ? window.location.hash : "";
-  
-  const isInitiativesActive = pathname === "/events" || pathname.startsWith("/events#");
+
+  const isInitiativesActive = pathname === "/initiatives" || pathname.startsWith("/initiatives#");
   const isContactActive = pathname === "/contact";
   const isAboutActive = pathname === "/about";
   const isTalkActive = pathname === "/talk";
@@ -66,9 +73,9 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
   // Hide marquee + divider completely when not on homepage
   const showMarqueeAndDivider = isHomePage;
   const marqueeVisible = showMarqueeAndDivider && scrollY < 80;
-  
+
   // Different scroll thresholds
-  const compactMode = scrollY >= 80; // Reduced from 120 to 80 for faster transition
+  const compactMode = scrollY >= 80;
   const logoScrolled = isHomePage ? scrollY > 20 : scrollY > 80;
 
   // Dropdown hover handlers
@@ -144,7 +151,7 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
               compactMode ? "py-3" : "py-4"
             }`}
           >
-            {/* Logo - Using your original motion animation */}
+            {/* Logo */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isNavReady ? { opacity: 1, scale: 1 } : {}}
@@ -156,11 +163,8 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                   compactMode ? "text-4xl lg:text-5xl" : "text-2xl sm:text-3xl lg:text-5xl"
                 }`}
               >
-                <div className="flex items-center "
-                     style={{ fontFamily: "var(--font-rubik), Georgia, serif" }}
-                >
+                <div className="flex items-center" style={{ fontFamily: "var(--font-rubik), Georgia, serif" }}>
                   <span>M</span>
-                  {/* Always show ATTER with the original motion animation */}
                   <motion.span
                     initial={{ x: 0, opacity: 1 }}
                     animate={{ x: logoScrolled ? -60 : 0, opacity: logoScrolled ? 0 : 1 }}
@@ -174,9 +178,9 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
               </Link>
             </motion.div>
 
-            {/* Desktop Navigation - Hide when logo shows just "M" */}
+            {/* Desktop Navigation */}
             <nav className={`hidden lg:flex items-center gap-8 lg:gap-24 transition-all duration-300 ${
-              logoScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+              logoScrolled ? "opacity-0 pointer-initiatives-none" : "opacity-100"
             }`}>
               {navItemsWithIndex.map((item, idx) => (
                 <motion.div
@@ -208,7 +212,6 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                           <ChevronDown className="h-4 w-4" />
                         </motion.div>
                       </button>
-                      {/* Fixed-position Dropdown */}
                       <AnimatePresence>
                         {dropdownOpen && triggerRect && (
                           <motion.div
@@ -228,7 +231,7 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                             <div className="w-56 rounded-xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-2xl py-3">
                               {EVENT_SUB_LINKS.map((link) => {
                                 const isSubActive =
-                                  pathname === "/events" && currentHash === link.href.split("#")[1];
+                                  pathname === "/initiatives" && currentHash === link.href.split("#")[1];
                                 return (
                                   <Link
                                     key={link.id}
@@ -256,10 +259,10 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                         item.label === "About" && isAboutActive
                           ? "text-white opacity-100"
                           : item.label === "Talk" && isTalkActive
-                          ? "text-white opacity-100"
-                          : item.label === "Contact" && isContactActive
-                          ? "text-white opacity-100"
-                          : "text-white/70 hover:text-white hover:opacity-100"
+                            ? "text-white opacity-100"
+                            : item.label === "Contact" && isContactActive
+                              ? "text-white opacity-100"
+                              : "text-white/70 hover:text-white hover:opacity-100"
                       }`}
                     >
                       {item.label}
@@ -268,17 +271,17 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                 </motion.div>
               ))}
 
-              {/* CTA Button - Hide when logo shows just "M" */}
+              {/* Desktop CTA Button – NOW OPENS MODAL */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={isNavReady ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: isNavReady ? 1.4 : 0, duration: 0.8, ease: "easeOut" }}
                 whileHover={{ y: -6 }}
-                className={logoScrolled ? "opacity-0 pointer-events-none" : ""}
+                className={logoScrolled ? "opacity-0 pointer-initiatives-none" : ""}
               >
                 <motion.div whileHover="hover" whileTap={{ scale: 0.98 }}>
-                  <Link
-                    href={CTA_HREF}
+                  <button
+                    onClick={onOpenGatheringModal}
                     className="relative inline-flex items-center justify-center gap-4 border border-white rounded-md px-8 py-4 text-sm font-bold tracking-widest uppercase overflow-hidden whitespace-nowrap"
                   >
                     <motion.div
@@ -300,12 +303,12 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                         →
                       </motion.span>
                     </motion.span>
-                  </Link>
+                  </button>
                 </motion.div>
               </motion.div>
             </nav>
 
-            {/* Mobile Menu Toggle - HIDE when mobile menu is open OR when logo shows just "M" */}
+            {/* Mobile Menu Toggle */}
             {!mobileMenuOpen && (
               <motion.button
                 initial={{ opacity: 0 }}
@@ -313,7 +316,7 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                 transition={{ delay: 1.5 }}
                 onClick={() => setMobileMenuOpen(true)}
                 className={`text-white lg:hidden relative w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300 ${
-                  logoScrolled ? "opacity-0 pointer-events-none" : ""
+                  logoScrolled ? "opacity-0 pointer-initiatives-none" : ""
                 }`}
               >
                 <Menu className="h-4 w-4" />
@@ -331,7 +334,6 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-40 lg:hidden"
             >
-              {/* Backdrop */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -339,8 +341,7 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                 className="absolute inset-0 bg-black/40"
                 onClick={() => setMobileMenuOpen(false)}
               />
-              
-              {/* Mobile Menu Panel */}
+
               <motion.div
                 initial={{ scale: 0.9, opacity: 0, y: -20 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -348,7 +349,6 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="absolute top-4 left-4 right-4 bg-transparent backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl"
               >
-                {/* Header with Close Button Only */}
                 <div className="flex items-center justify-end p-4">
                   <button
                     onClick={() => setMobileMenuOpen(false)}
@@ -358,7 +358,6 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                   </button>
                 </div>
 
-                {/* Navigation Items */}
                 <div className="px-3 pb-3 space-y-1">
                   {navItemsWithIndex.map((item) => (
                     <div key={item.label}>
@@ -425,17 +424,19 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
                   ))}
                 </div>
 
-                {/* CTA Button */}
+                {/* Mobile CTA Button – NOW OPENS MODAL */}
                 <div className="p-3 border-t border-white/10">
-                  <Link
-                    href={CTA_HREF}
-                    onClick={() => setMobileMenuOpen(false)}
+                  <button
+                    onClick={() => {
+                      onOpenGatheringModal?.();
+                      setMobileMenuOpen(false);
+                    }}
                     className="relative inline-flex w-full items-center justify-center gap-2 border border-white rounded-lg px-4 py-2.5 text-xs font-bold tracking-widest uppercase overflow-hidden"
                   >
                     <span className="relative z-10 flex items-center gap-1.5">
                       {CTA_LABEL} <span>→</span>
                     </span>
-                  </Link>
+                  </button>
                 </div>
               </motion.div>
             </motion.div>
@@ -443,7 +444,6 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
         </AnimatePresence>
       </header>
 
-      {/* Global Styles */}
       <style jsx global>{`
         @keyframes marquee {
           from {
@@ -465,3 +465,6 @@ export default function NavigationBar({ isNavReady = false }: { isNavReady?: boo
     </>
   );
 }
+
+
+

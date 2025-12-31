@@ -109,24 +109,8 @@ export function SloganSection() {
         delay={5} 
         direction="right"
       />
-      {/* <Cloud 
-        top="48%" 
-        size={180} 
-        duration={50} 
-        rotateDuration={350}  
-        delay={15} 
-        direction="right"
-      />
-      <Cloud 
-        top="72%" 
-        size={220} 
-        duration={40} 
-        rotateDuration={300} 
-        delay={8} 
-        direction="right"
-      /> */}
 
-      {/* 10 Clouds at different positions - Right to Left */}
+      {/* Clouds at different positions - Right to Left */}
       <Cloud 
         top="12%" 
         size={170} 
@@ -151,14 +135,6 @@ export function SloganSection() {
         delay={7} 
         direction="left"
       />
-      {/* <Cloud 
-        top="58%" 
-        size={260} 
-        duration={32} 
-        rotateDuration={280} 
-        delay={18} 
-        direction="left"
-      /> */}
       <Cloud 
         top="82%" 
         size={140} 
@@ -185,23 +161,6 @@ export function SloganSection() {
         delay={30} 
         direction="left"
       />
-      {/* <Cloud 
-        top="65%" 
-        size={160} 
-        duration={70} 
-        rotateDuration={480} 
-        delay={35} 
-        direction="right"
-      />
-      <Cloud 
-        top="88%" 
-        size={130} 
-        duration={85} 
-        rotateDuration={650}  
-        delay={40} 
-        direction="left"
-      /> */}
-
       {/* Your content */}
       <div className="container mx-auto px-6 text-center relative z-10">
         <motion.span

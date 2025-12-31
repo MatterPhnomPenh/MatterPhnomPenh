@@ -12,6 +12,7 @@
   --foreground: #171717;
 } */
 
+
 @theme inline {
   --color-background: var(--background); /* Set default background */
   --color-foreground: var(--foreground);

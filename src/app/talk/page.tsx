@@ -1,19 +1,30 @@
+
+
 "use client";
 
 import { useEffect, useState } from "react";
 import { useScroll, useTransform } from "framer-motion";
 import { useNavigation } from "../components/hooks/use-navigation";
+
 import MainLayout from "../components/layouts/main-layout";
-import UnderConstructionPage from "../components/sections/under-construction-page";
+import GatheringModal from "../components/sections/GatheringModal";
+import BlogIntroSection from "../components/sections/talk/intro-talk-section";
+// import SocialMediaSection from "../components/sections/talk/details-talk-section";
 
-
-export default function ContactPage() {
+export default function AboutPage() {
   const { activeSection, scrollToSection } = useNavigation();
   const { scrollY } = useScroll();
-  const navBackground = useTransform(scrollY, [0, 100], ["rgb(255, 255, 255)", "rgba(255, 251, 251, 0.9)"]);
+  const navBackground = useTransform(
+    scrollY,
+    [0, 100],
+    ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.9)"]
+  );
 
   // Add the missing state for nav animation (same pattern as your homepage)
   const [isNavReady, setIsNavReady] = useState(false);
+  const [isGatheringModalOpen, setIsGatheringModalOpen] = useState(false);
+  const openGatheringModal = () => setIsGatheringModalOpen(true);
+  const closeGatheringModal = () => setIsGatheringModalOpen(false);
 
   // Trigger nav animation after a tiny delay when page mounts
   useEffect(() => {
@@ -22,15 +33,17 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <MainLayout
-      isNavReady={isNavReady}                    // REQUIRED prop
-      navBackground={navBackground}              // MotionValue<string> → accepted directly
+    <><MainLayout
+      isNavReady={isNavReady}
+      navBackground={navBackground}
       activeSection={activeSection}
       scrollToSection={scrollToSection}
-    >      {/* <BlogIntroSection />
-      <SocialMediaSection />
-      <TalkFooter /> */}
-      <UnderConstructionPage />
-    </MainLayout>
+      onOpenGatheringModal={openGatheringModal}
+    >
+      <BlogIntroSection />
+      {/* <SocialMediaSection /> */}
+    </MainLayout><GatheringModal
+        isOpen={isGatheringModalOpen}
+        onClose={closeGatheringModal} /></>
   );
 }

@@ -61,7 +61,7 @@ export default function TheDreamSection() {
             <div className="pl-8">
               <div className="flex items-center gap-4 mb-6">
                 <span className="text-2xl font-bold text-lime-400"
-                      style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
+                      style={{ fontFamily: "var(--font-rubik), Georgia, serif" }}
                 >2017</span>
                 <div className="h-0.5 flex-1 bg-gradient-to-r from-lime-400/30 to-transparent" />
               </div>
@@ -120,7 +120,7 @@ export default function TheDreamSection() {
             <div className="pl-8">
               <div className="flex items-center gap-4 mb-6">
                 <span className="text-2xl font-bold text-lime-400"
-                      style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
+                      style={{ fontFamily: "var(--font-rubik), Georgia, serif"}}
                 >2018</span>
                 <span className="text-gray-400"
                       style={{ fontFamily: "var(--font-rubik), Georgia, serif", fontWeight: 400 }}
