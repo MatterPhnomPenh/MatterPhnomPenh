@@ -14,7 +14,6 @@ export default function IntroHomeSection() {
     <div className="relative overflow-hidden">
       <section
         className="relative bg-black bg-cover bg-center bg-no-repeat min-h-screen flex flex-col"
-        style={{ backgroundImage: "url('/images/ORS_Hoklin.jpg')" }}
       >
         <div className="relative z-10 flex-1 flex items-center justify-center px-8 lg:px-12">
           <div className="w-full h-full">
