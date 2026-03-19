@@ -42,7 +42,7 @@ export default function ImageIntro({ onEnd }: { onEnd: () => void }) {
       >
         <Image
           className="object-cover"
-          src="/images/ORS_Hoklin.jpg"
+          src="/images/orange.jpg"
           alt="Background"
           fill
           priority
